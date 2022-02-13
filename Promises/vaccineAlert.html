@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Vaccine Booth Alert System</h1>
+    <hr />
+    <input type="text" placeholder="Enter Your Name" id="name" />
+    <button onclick="register()">REGISTER</button>
+
+    <script>
+
+        var intervalId;
+        let queue = ["Chandler", "Ross", "Joey", "Monica"];
+
+        function register() {
+        let name = document.getElementById("name").value;
+
+        queue.push(name);
+        let message = name +" Congratulations you have been registered! please wait for your turn";
+        
+        alert(message);
+
+        let myPromise = new Promise(function (resolve, reject) {
+            let intervalId = setInterval(function () {
+            if (queue[0] === name) {
+                resolve(name + " !it's your turn now");
+                clearInterval(intervalId);
+            }
+            }, 1000); // function(){}, 1 sec ==> every 1 sec it should get invoked
+        });
+
+        myPromise.then(function (res) {
+            alert(res);
+        });
+        }
+
+        function startVaccination() {
+        queue.shift();
+        if (queue.length === 0) {
+            clearInterval(intervalId);
+        }
+        }
+
+        intervalId = setInterval(startVaccination, 2000);
+
+    </script>
+    
+</body>
+</html>
