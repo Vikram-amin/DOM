@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-size: 16px;
+            }
+        form > div {
+            margin: 10px;
+            }
+    </style>
+</head>
+<body>
+    
+    <h1>Grocery List</h1>
+        <form>
+            <div>
+                <label>Name</label>
+               <input type="text" id="name"  name="name" />
+            </div>
+            <div>
+                <label>Quantity</label>
+               <input type="number" id="quantity" name="quantity" />
+            </div>
+            <div>
+                <label>Priority</label>
+                <select name="priority" id="priority">
+                    <option value="low">Low</option>
+                    <option value="medium">Medium</option>
+                    <option value="high">High</option>
+                </select>
+            </div>
+            <div>
+                <input type="submit" value="Add Item" />
+            </div>
+        </form>
+        <table border="1">
+            <tr>
+                <td>S No</td>
+                <td>Name</td>
+                <td>Quantity</td>
+                <td>Priority</td>
+                <td>Status</td>
+                <td>Action</td>
+            </tr>
+        </table>
+
+        <script>
+            const form = document.querySelector('form');
+                  form.addEventListener('submit',addItem);
+
+            const table = document.querySelector('table')
+
+            let item=[];
+
+            function addItem(event){
+                event.preventDefault();
+                var name = document.getElementById("name").value;
+                var quantity = document.getElementById("quantity").value;
+                var priority = document.getElementById('priority').value;
+                
+                createRow(name,quantity,priority)
+
+                // once click add clear input box
+                document.getElementById("name").value = "";
+                document.getElementById("quantity").value = "";
+                document.getElementById('priority').value = "low";
+
+            }
+
+            function createRow(name,quantity,priority){
+                if(name.length > 0){ // validation check if item name not enter dont add
+                let row = document.createElement('tr');
+                let c1 = document.createElement('td');
+                c1.textContent = item.length+1;
+                let c2 = document.createElement('td');
+                c2.textContent = name;
+                let c3 = document.createElement('td');
+                c3.textContent = quantity;
+                let c4 = document.createElement('td');
+                c4.textContent = priority;
+                let c5 = document.createElement('td');
+                c5.textContent = "Pending";
+                c5.addEventListener('click',markCompleted)
+                var c6 = document.createElement('td');
+                c6.textContent = "Delete";
+                c6.addEventListener('click', deleteItem);
+                var c7 = document.createElement('td');
+                c7.textContent = "Edit";
+                c7.addEventListener('click', editItem);
+
+                row.append(c1,c2,c3,c4,c5,c6,c7)
+                table.appendChild(row)
+
+                item.push({name : name, quantity : quantity, priority : priority})
+                }
+            }
+
+            function markCompleted(event){
+               // console.log(event)
+               if(event.target.textContent == "Pending") {
+                  event.target.textContent = "Completed";
+                  event.target.style.backgroundColor = "green";
+                //   event.target.parentNode.style.backgroundColor = "green"; // to selelct whole row
+                } else {
+                  event.target.textContent = "Pending";
+                  event.target.style.backgroundColor = "white";
+                }
+            }
+
+            function deleteItem(event){
+                event.target.parentNode.remove();
+            }
+
+            function editItem(event){
+                console.log(event)
+                var parent = event.target.parentNode;
+                var childs = parent.querySelectorAll('td');
+                document.getElementById("name").value = childs[1].textContent;
+                document.getElementById("quantity").value = childs[2].textContent;
+                document.getElementById('priority').value = childs[3].textContent;
+                
+                event.target.parentNode.remove();
+            }
+
+            console.log(item)
+        </script>
+</body>
+</html>
