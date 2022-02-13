@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="count"></h1>
+
+    <script>
+        let countDisplay = document.getElementById("count")
+        let i = 5;
+
+       let x = setInterval(function(){
+            i = i-1
+            countDisplay.innerHTML = i;
+
+            if(i==0){
+                clearInterval(x)
+            }
+        },1000)
+
+        // console.log('interval ID ', x)
+
+    </script>
+    
+</body>
+</html>
