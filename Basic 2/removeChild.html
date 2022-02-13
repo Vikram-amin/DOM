@@ -1,0 +1,54 @@
+
+<html>
+    <head>
+      <title>Remove Child</title>
+    </head>
+    <body>
+  
+      <div id="div1">First DIV</div>
+      <div id="div2">Second DIV</div>
+  
+      <div id="cont">
+        <p class="para">First Para</p>
+        <p class="para">Second Para</p>
+        <p class="para">Third Para</p>
+        <p class="para">Fourth Para</p>
+      </div>
+  
+  
+      <button onclick="removeDiv()">Remove DIV</button>
+      <button onclick="removeParas()">Remove Paras</button>
+  
+    </body>
+  </html>
+  <script>
+  
+      function removeDiv(){
+            var bodyElem = document.querySelector('body');
+  
+           var firstDiv = document.getElementById("div1");
+           var div = document.querySelector('#div2');
+  
+           bodyElem.removeChild(firstDiv);  
+           bodyElem.removeChild(div);
+      }
+  
+      function removeParas() {
+  
+        var contDiv = document.getElementById("cont");
+        var paras = document.querySelectorAll('.para');
+    
+    for(i=0; i < paras.length; i++){
+  
+      if (i % 2 == 0){
+        contDiv.removeChild(paras[i]);
+  
+      } else {
+        paras[i].style.color = 'red';
+        paras[i].textContent = "Paragraph " + (i*100);
+      }
+    }
+  }
+  
+  
+  </script>

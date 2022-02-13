@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        #myDiv{
+            width: 30%;
+            border: 2px solid black;
+            margin-bottom: 10px;
+        }
+
+    </style>
+
+</head>
+<body>
+    <p>Click the button to create a P element with some text, and append it to DIV.</p>
+
+    <div id="myDiv">A div element</div>
+    
+    <button onclick="myFunction()">Try it</button>
+    
+</body>
+</html>
+<script>
+function myFunction(){
+    var para=document.createElement("p")
+    para.innerHTML="added para"
+
+    document.getElementById("myDiv").appendChild(para)
+}

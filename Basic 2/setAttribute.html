@@ -1,0 +1,36 @@
+<html>
+  <head>
+    <title>Set Attribute</title>
+  </head>
+  <body>
+    <div>
+      <a href="http://www.google.com" target="_blank">Google</a>
+    </div>
+
+    <hr/>
+
+    <div>
+      <img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" />
+    </div>
+
+    <hr>
+
+    <button onclick="changeLink()">Change Link</button>
+    <button onclick="changeImage()">Change Image</button>
+
+  </body>
+
+  <script>
+      function changeLink(){
+          let link = document.querySelector("a");
+          link.setAttribute('href', 'http://www.masaischool.com');
+          link.textContent = 'MASAI School';
+      }
+
+      function changeImage(){
+          let logo = document.querySelector("img");
+          logo.setAttribute('src','https://www.masaischool.com/img/navbar/logo.svg');
+
+      }
+  </script>
+</html>

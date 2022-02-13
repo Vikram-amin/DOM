@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+</head>
+<body>
+
+    <div>Only One Div</div>
+    <button onclick="changeContent()" id="btn">Change DOM</button>
+
+    <script>
+        let index =0;
+
+        function changeContent(){
+            let para = document.createElement("p");
+            para.innerText = "Masai " + index;
+
+            let btn = document.getElementById("btn");
+            let body = document.querySelector('body');
+
+            body.insertBefore(para,btn)
+
+            index+=1
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1> Validating forms with listeners </h1>
+
+    <form id  = "nameForm">
+    <div>
+        <label for="fname">First name: </label>
+        <input id="fname" type="text">
+    </div>
+
+    <div>
+        <label for="lname">Last name: </label>
+        <input id="lname" type="text">
+    </div>
+
+    <div>
+        <input id="submit" type="submit">
+    </div>
+
+    </form>
+
+    <p id = "output"></p>
+
+    </body>
+    </html>
+
+
+    <script>
+
+    var form = document.getElementById('nameForm');
+    var fname = document.getElementById('fname');
+    var lname = document.getElementById('lname');
+    var para = document.getElementById('output');
+
+    function validate(e){
+    if(fname.value == '' || lname.value == ''){
+        e.preventDefault()
+        para.textContent = "First name or last name is empty!"
+    }
+    }
+
+    form.addEventListener('submit', validate);
+//Code for form validation above
+
+    </script>
+</body>
+</html>

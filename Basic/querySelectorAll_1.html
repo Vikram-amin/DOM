@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+</head>
+<body>
+
+<h2>JavaScript HTML DOM</h2>
+
+<p>Finding HTML Elements by Query Selector</p>
+<p class="intro">Hello World!.</p>
+<p class="intro">This exampl <b>querySelectorAll</b></p>
+---------------------------------------------------------------
+
+<p id="demo"></p>
+    
+</body>
+<script>
+    let x = document.querySelectorAll("p.intro");
+    document.getElementById("demo").innerHTML = "secon para "+ x[1].innerHTML
+</script>
+</html>

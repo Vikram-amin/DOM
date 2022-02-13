@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <div>
+    <select id="mySelect">
+      <option value="medium">M</option>
+      <option value="large">L</option>
+      <option value="x large">XL</option>
+    </select>
+  </div>
+  <br/>
+  <button onclick="showOption()">Alert Option</button> 
+</body>
+
+<script>
+function showOption() {
+  alert(document.getElementById("mySelect").value);
+}
+</script>
+</html>

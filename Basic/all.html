@@ -1,0 +1,51 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>Document</title>
+<style>
+    #headding{
+        background-color: yellow;
+        color: red;
+        font-size: medium;
+
+    }
+
+
+</style>
+
+</head>
+<body>
+    <div id="headding">JavaScript</div>
+    <br>
+    <div>
+        <input type="text" id="myInput">
+    </div>
+    <br>
+    <button onclick="alertInput()">alert Input</button>
+    <button onclick="setinput()">set Input</button>
+    <button onclick="showinput()">Show input</button>
+    <button onclick="change()">Change to javascript</button>
+    
+</body>
+</html>
+
+<script>
+    function alertInput(){
+        alert(document.getElementById("myInput").value)
+    }
+
+    function setinput(){
+        document.getElementById("myInput").value = "Vikram";
+    }
+
+    function showinput(){
+        document.getElementById("headding").innerHTML = document.getElementById('myInput').value;
+    }
+
+    function change(){
+       document.getElementById("headding").innerHTML ="java script" 
+    }
+
+</script>

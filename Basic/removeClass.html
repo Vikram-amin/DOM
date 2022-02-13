@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>Document</title>
+
+<style>
+    *{
+  width:500px;
+  font-size:20px;
+  margin:10px
+}
+.class1{
+  border:1px solid red;
+}
+
+.class2{
+  border:1px solid green;
+}
+
+
+</style>
+
+</head>
+<body>
+
+<div class='class1'>Class 1</div>
+<div class='class2'>Class 2</div>
+<div class='class1'>Class 3</div>
+<a class='class2'>Class 2</a>
+<a class='class1'>Class 1</a>
+<a class='class1 class2'>Class 1 Class 2</a>
+
+<button onclick="getClass('class1')">Delete Class 1</button>
+<button onclick="getClass('class2')">Delete Class 2</button>
+
+    
+</body>
+</html>
+
+<script>
+
+function getClass(name){
+    var res= document.getElementsByClassName(name);
+
+    removeContent(res)
+}
+
+function removeContent(input){
+    for(let i=0;i<input.length;i++){
+        input[i].innerHTML="";
+    }
+
+}
+
+</script>
+

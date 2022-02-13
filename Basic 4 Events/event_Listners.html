@@ -1,0 +1,68 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+
+    <style>
+        div{
+         border:1px solid black;
+         width:200px
+        }
+    </style>
+</head>
+<body>
+  
+  <button id='add' >Add New</button>
+  <br />
+  <div>Hover over me</div>
+  <br />
+  <a href="www.masaischool.com">Masai website</a>
+  
+  <script>
+
+      let btn = document.getElementById("add")
+      let count = 1;
+
+      function add(){
+        let body = document.querySelector('body') 
+        let div = document.createElement('div');
+
+        div.innerText= "div count - " + count++;
+
+        body.insertBefore(div,btn)
+
+      }
+
+      btn.addEventListener('click',add)
+
+      //----------------------------------------------------
+
+    var div = document.querySelector('div');
+
+    div.addEventListener("mouseover",function(e){
+    console.log(e.target)
+    var body = document.querySelector('body')
+    var p = document.createElement('p')
+    p.textContent = 'hovered over the div at ' + Date()
+    body.appendChild(p)
+    })
+
+    //--------------------------------------------------
+
+
+    var aLink = document.querySelector('a');
+    
+    aLink.addEventListener("click",function(event){
+    event.preventDefault()
+        console.log(event.target)
+    var body = document.querySelector('body')
+    var p = document.createElement('p')
+    p.textContent = 'prevented from going to the website at ' + Date()
+    body.appendChild(p)
+    })
+
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<html>
+  <head>
+    <title>Query Selector</title>
+  </head>
+  <body>
+
+
+
+    <div>First div</div>
+    <div>Second div</div>
+
+    <p>First para</p>
+    <p>Second para</p>
+
+    <button onclick="changeContent()">Change DOM</button>
+
+
+
+  </body>
+</html>
+<script>
+
+function changeContent(){
+    var firstDiv= document.querySelector('div')
+    var firstPara= document.querySelector('p')
+
+    firstDiv.style.color="red"
+    firstPara.style.color="blue"
+
+    firstDiv.innerHTML="Masai"
+}
+
+</script>

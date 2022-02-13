@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        .black_row{
+            background-color: black;
+            color: wheat;
+        }
+        .red_row{
+            background-color: red;
+        }
+    </style>
+
+</head>
+<body>
+
+ <button id="create">Create page</button>
+ <table id="table">
+
+</table>
+
+    
+</body>
+
+<script>
+    let table = document.getElementById("table")
+    let btn   = document.getElementById("create")
+
+    let scores = [{"name":"aman","score":20},
+                 {"name":"prateek","score":40},
+                 {"name":"vikram","score":50}
+                ];
+
+  
+
+    function createScore(){
+        let total = 0;
+
+        let totalRow = document.getElementById("total") // put total row end of the row ehwn create page
+        if(totalRow != null){
+            totalRow.remove();
+        }
+
+     for(let index=0; index < scores.length; index++){
+        let row = document.createElement('tr')
+        let c1 = document.createElement('td')
+        c1.textContent = index+1
+        let c2 = document.createElement('td')
+        c2.textContent = scores[index]['name']
+        let c3 = document.createElement('td')
+        c3.textContent = scores[index]['score']
+
+        total += scores[index]['score']
+
+        row.append(c1,c2,c3)
+
+        if(index%2 == 0){
+            row.setAttribute('class','red_row')
+        }else{
+            row.setAttribute('class','black_row')
+        }
+        table.append(row)
+     }
+
+     // create row for total
+        let row = document.createElement('tr')
+        let c1 = document.createElement('td')
+        c1.textContent = "Total"
+        c1.setAttribute("colspan",2)
+        let c2 = document.createElement('td')
+        c2.textContent = total
+        row.setAttribute("id","total")
+
+        row.append(c1,c2)
+        table.appendChild(row)
+     
+    }
+
+    btn.addEventListener('click',createScore)
+
+  
+</script>
+</html>

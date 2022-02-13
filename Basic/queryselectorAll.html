@@ -1,0 +1,31 @@
+
+<html>
+    <head>
+      <title>Query Selector All</title>
+    </head>
+    <body>
+      <div class="class1">First div</div>
+      <div class="class2">Second div</div>
+      <p class="class1">First para</p>
+      <p class="class2">Second para</p>
+      <button onclick="changeContent()">Change DOM</button>
+    </body>
+
+    <script>
+
+function changeContent() {
+  var elems1 = document.querySelectorAll('.class1');
+  for (i = 0; i < elems1.length; i++){
+    var elem = elems1[i];
+    elem.textContent = 'Class1 - ' + i;
+  }
+  
+  var elems2 = document.querySelectorAll('.class2');
+  for (i = 0; i < elems2.length; i++){
+    var elem = elems2[i];
+    elem.textContent = 'Class2 - ' + i;
+  }
+}
+
+    </script>
+  </html>

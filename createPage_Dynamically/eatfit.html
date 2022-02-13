@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+
+<head>
+    <style>
+        #parent{
+            background-color: #0E0E0E;
+            width: 100%;
+            height: 92vh;
+           padding-top: 20px;
+           margin: -10px -12px;
+            
+        }
+      .frame{
+          margin-left: 440px;
+          width: 35%;
+          height: 560px;
+          background-color: #322F30;
+          text-align: center;
+           
+          
+      }
+      .block1{
+          color: white;
+          padding-top: 60px;
+          padding-bottom: 20px;
+      }
+      .block2, .block3,.block4{
+          color: white;
+          padding-top: 30px; 
+          margin: 0%;
+          font-family: 'Roboto', sans-serif;
+      }
+      .a{
+          margin: 0;
+          padding: 0;
+        
+      }
+       .b{
+          margin: 0;
+          padding: 0;
+        
+      }
+       .c{
+          margin: 0;
+          padding: 0;
+        
+      }
+      .a{
+          font-size: 20px;
+      }
+      .b{
+          font-size:25px;
+          color: #FF006E;
+      }
+      .block5{
+          border: 2px;
+          background-color:  #FF006E;
+          width: 400px;
+          height: 30px;
+          margin-left: 35px;
+          border-radius: 20px;
+          margin-top: 30px;
+          padding-top:10px;
+          color: white;
+
+      }
+      .break{
+          margin-left:200px;
+          width: 50px;
+          border: 2px solid rgb(224, 210, 210);
+          margin-top: 20px;
+      }
+
+
+    </style>
+  
+</head>
+<body>
+    <button onclick="create()">create page</button>
+
+</body>
+<script>
+
+    function create(){
+let body = document.body;
+let parent = document.createElement('div');
+parent.setAttribute('id','parent')
+
+let frame = document.createElement('div');
+frame.setAttribute('class','frame')
+
+// block1
+let block1  = document.createElement('div');
+block1.setAttribute('class','block1')
+
+let b1_h2_1 = document.createElement('h2');
+b1_h2_1.setAttribute("class","c");
+b1_h2_1.textContent="Today Sun,26th Apr"
+
+let b1_h2_2 = document.createElement('h2');
+b1_h2_2.textContent="Schedule - 7:00 AM onwords"
+
+block1.append(b1_h2_1,b1_h2_2)
+
+// blopck2
+
+let block2  = document.createElement('div');
+block2.setAttribute('class','block2')
+
+let b2_h2_1 = document.createElement('h2');
+b2_h2_1.setAttribute("class","a");
+b2_h2_1.textContent="Parathe Sharathe with"
+
+let b2_h2_2 = document.createElement('h2');
+b2_h2_1.setAttribute("class","b");
+b2_h2_2.textContent="Chif Archana Doshi"
+
+block2.append(b2_h2_1,b2_h2_2)
+
+// break
+let break1  = document.createElement('div');
+break1.setAttribute('class','break')
+
+//block3
+let block3  = document.createElement('div');
+block3.setAttribute('class','block3')
+
+let b3_h2_1 = document.createElement('h2');
+b3_h2_1.setAttribute("class","a");
+b3_h2_1.textContent="Spices and immunity with"
+
+let b3_h2_2 = document.createElement('h2');
+b3_h2_1.setAttribute("class","b");
+b3_h2_2.textContent="Nutriton Expert Manasa Rajan"
+
+block3.append(b3_h2_1,b3_h2_2)
+
+// break
+let break2  = document.createElement('div');
+break2.setAttribute('class','break')
+
+//block4
+let block4  = document.createElement('div');
+block4.setAttribute('class','block4')
+
+let b4_h2_1 = document.createElement('h2');
+b4_h2_1.setAttribute("class","a");
+b4_h2_1.textContent="Postman Vegetables with<"
+
+let b4_h2_2 = document.createElement('h2');
+b4_h2_1.setAttribute("class","b");
+b4_h2_2.textContent="Chef jeson D'Souza";
+
+block4.append(b4_h2_1,b4_h2_2)
+
+//block5
+let block5  = document.createElement('div');
+block5.setAttribute('class','block4')
+
+let b5_h2_1 = document.createElement('h2');
+b5_h2_1.setAttribute("class","a");
+
+block5.append(b5_h2_1)
+
+
+
+frame.append(block1,block2,break1,block3,break2,block4,block5)
+parent.appendChild(frame)
+body.appendChild(parent)
+    }
+
+
+</script>
+</html>
