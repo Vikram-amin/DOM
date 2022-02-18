@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+
+  margin-top: 5%;
+  margin-left: 5%;
+  margin-right: 5%;
+
+  grid-gap: 20px;
+}
+
+#container > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #cecece;
+}
+
+img {
+  width: 200px;
+  height: 200px;
+}
+
+#main{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+}
+
+#main > div{
+  width: 250px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+#main button{
+  height: 25px;
+}
+#main > div > div{
+  padding-right: 40px;
+  color: red;
+}
+    </style>
+</head>
+<body>
+  <div id="main">
+    <h1>product Page</h1>
+    <div>
+    <button onclick="goToCartPage()">Go to Cart Page</button> 
+    <div id="count">cart items</div>
+    </div>
+       </div>
+       <hr>
+    <div id="container"></div>
+
+    <script>
+
+  let cart = localStorage.getItem('cart');
+  if(cart === null){
+    localStorage.setItem('cart',JSON.stringify([]))
+  }
+
+
+let url="https://fakestoreapi.com/products";
+
+let container = document.getElementById("container");
+
+async function getData() {
+  try {
+    let res = await fetch(url); 
+    let data = await res.json();
+    //console.log(data);
+    displayData(data);
+  } catch (err) {
+   // console.log(err);
+  }
+}
+
+getData();
+
+function displayData(data) {
+
+  data.forEach(function (product) {
+    let productCard = document.createElement("div");
+
+    let img = document.createElement("img");
+    img.src = product.image;
+    let title = document.createElement("p");
+    title.textContent = product.title;
+    let price = document.createElement("p");
+    price.textContent = product.price;
+    let btn = document.createElement("button")
+    btn.textContent="Add to Cart"
+    btn.addEventListener('click',()=>{
+      addToCart(product)
+    })
+ 
+    productCard.append(img, title, price, btn);
+    container.append(productCard);
+  });
+}
+
+function addToCart(data){
+  let cart = JSON.parse(localStorage.getItem('cart'))
+
+  for(let i=0;i<cart.length ;i++){
+     if(cart[i].id === data.id){
+      alert('Item Already in cart')
+      cart[i].id.pop()
+    }
+  }
+      cart.push(data)
+      localStorage.setItem('cart',JSON.stringify(cart))
+
+    document.getElementById("count").innerHTML="Cart item :"+cart.length
+}
+
+
+function goToCartPage(){
+  window.location.href='cart.html'
+}
+
+
+
+    </script>
+</body>
+</html>

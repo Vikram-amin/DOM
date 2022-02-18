@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        td{
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <form >
+        <label for="name">Name : </label>
+        <input type="text" name="name" id="name">
+
+        <label for="qauntity">Quantity :</label>
+        <input type="text" name="quantity" id="quantity">
+
+        <button onclick="addItem(event)">Submit</button>
+        
+    </form>
+
+    <table border="2">
+        <br>
+        <thead>
+        <tr>
+            <td>S No</td>
+            <td>Name</td>
+            <td>Quantity</td>
+        </tr>
+    </thead>
+        <tbody></tbody>
+    </table>
+
+    <script>
+
+        let tbody= document.querySelector('tbody')
+
+        let data = localStorage.getItem('items')
+        if(data === null){
+            localStorage.setItem("items",JSON.stringify([]))
+        }
+       
+            function addItem(event){
+                 event.preventDefault();
+                var name = document.getElementById("name").value;
+                var quantity = document.getElementById("quantity").value;
+   
+                let item ={
+                    name,
+                    quantity
+                }
+
+                let data = JSON.parse(localStorage.getItem('items'))
+                if(name.length > 0){
+                    data.push(item)
+                }
+                localStorage.setItem("items",JSON.stringify(data))
+                createRow()
+
+  
+                document.getElementById("name").value = "";
+                document.getElementById("quantity").value = "";
+
+            }
+
+            function createRow(){
+                let data = JSON.parse(localStorage.getItem('items'));
+                tbody.innerHTML="";
+                let count=1;
+                
+                data.forEach(el => {
+                    
+                if(el.name.length > 0){ 
+
+                let row = document.createElement('tr');
+                let c1 = document.createElement('td');
+                c1.textContent = count++;
+                let c2 = document.createElement('td');
+                c2.textContent = el.name;
+                let c3 = document.createElement('td');
+                c3.textContent = el.quantity;
+                var c4 = document.createElement('td');
+                c4.textContent = "Delete";
+                c4.addEventListener('click', deleteItem);
+
+                row.append(c1,c2,c3,c4)
+                tbody.appendChild(row)
+                }          
+            });
+
+               data = data.map((item, i) => {
+                item.id = i + 1
+                return item;
+                })
+
+                localStorage.setItem("items",JSON.stringify(data))
+                
+            }
+            createRow()
+
+            function deleteItem(event){
+                let data = JSON.parse(localStorage.getItem('items'));
+                event.target.parentNode.remove();
+
+                let value = event.target.parentNode.textContent;
+                let slnum = value.split("")[0];
+                slnum = Number(slnum)
+
+                    const newData = data.filter(x => x.id !== slnum);
+                    console.log(newData)
+                    localStorage.setItem("items",JSON.stringify(newData))
+               
+         
+            }
+          
+        
+
+    </script>
+</body>
+</html>

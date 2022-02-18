@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+        }
+        th{
+            padding: 10px 40px 10px 40px;
+        }
+
+        label{
+            padding:0px;
+         
+        }
+        input , select{
+            width: 100%;
+            padding: 6px;
+            margin:10px;
+        }
+
+        button{
+            width: 50%;
+           margin-left: 25%;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div>
+        
+        <h1>Add Product</h1>
+        <form id="myform">
+            <label for="productCategory ">Category </label> <br>
+            <select name="productCategory " id="productCategory">
+                <option value=" Electronics "> Electronics </option>
+                <option value=" Furniture "> Furniture </option>
+                <option value=" Home appliance "> Home appliance </option>
+                <option value=" Books "> Books </option>
+            </select>  <br>
+
+            <label for="title">Title</label> <br>
+            <input type="text" id="title"/>  <br>
+
+            <label for="description">Description</label> <br>
+            <textarea name="description" id="description" cols="30" rows="10"></textarea>  <br>
+
+            <label for="title" id="price">Price</label> <br>
+            <input type="number" id="price" placeholder="Price">  <br>
+        </form>
+
+        <button onclick="addProduct()" id="btn"> Add </button>
+
+        </div>
+        <div>
+
+            <h1>Product Info</h1>
+            <table border="1">
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Category</th>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+
+            </table>
+        </div>
+    </div>
+
+    <script>
+
+        let data = localStorage.getItem('items')
+        if(data === null){
+        localStorage.setItem('items',JSON.stringify([]))
+        }
+
+        let tableBody = document.querySelector('tbody')
+       
+
+        function addProduct(){
+        let form=document.getElementById("myform");
+        let productCategory = form.productCategory.value;
+        let name = form.title.value;
+        let description= form.description.value;
+        let price=form.price.value;
+
+        let location={
+        name,
+        productCategory,
+        price,
+        description
+    };
+
+    
+     
+  
+      let data = JSON.parse(localStorage.getItem('items'))
+      if(name.length > 0){
+      data.push(location)
+      }
+      localStorage.setItem('items',JSON.stringify(data));
+      displayData()
+   
+    
+
+       form.title.value = "";
+       form.productCategory.value = "";
+       form.description.value = "";
+       form.price.value = "";
+
+}
+
+
+            function displayData(){
+                let data = JSON.parse(localStorage.getItem('items'));
+                tableBody.innerHTML="";
+                let count=1;
+
+                data.forEach(el => {
+                   
+                
+                if(el.name.length > 0){ 
+                let row = document.createElement('tr');
+                let c1 = document.createElement('td');
+                c1.textContent = count++
+                let c2 = document.createElement('td');
+                c2.textContent = el.productCategory;
+                let c3 = document.createElement('td');
+                c3.textContent = el.name;
+                let c4 = document.createElement('td');
+                c4.textContent = el.description;
+                let c5 = document.createElement('td');
+                c5.textContent = el.price;
+            
+                row.append(c1,c2,c3,c4,c5)
+                tableBody.appendChild(row)
+                }
+                    
+                });
+            }
+       
+            
+
+            displayData()
+           
+
+            
+ 
+
+
+ 
+        
+
+    </script>
+    
+</body>
+</html>

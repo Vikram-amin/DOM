@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>cart</title>
+       <style>
+           #container{
+               display: flex;
+               gap: 2%;
+           }
+
+      
+
+          h1{
+            text-align: left;
+            margin-top: 20px;
+            margin-left: 25%;
+           
+           
+        }       
+         button{
+             margin-top: 10px;
+             margin-left: 44%;
+             width: 160px;
+             height: 30px;
+
+         }
+            img{
+            width:85%;
+            height : 200px;
+            padding: 10px;
+        }
+
+        #dataDiv{
+            border: 2px solid white;
+             width: 60%;
+
+        }
+        #data{
+           
+            display: grid;
+            justify-content: center;
+            text-align: center;
+            grid-template-columns: repeat(3, 30%);
+            grid-gap:2%;
+            justify-content: left;
+            margin-left: 5%;
+          
+       }
+
+        #data div{     
+            margin-bottom: 20px;
+            background-color:rgb(206, 206, 175);
+            border: 2px solid rebeccapurple;    
+        }
+
+        input{
+             width: 200px;
+             height: 30px;
+        }
+        .btn{
+           margin-left: 45px;
+
+        }
+
+        #total{
+            display: flex;
+            flex-direction: column;
+            width: 300px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            line-height: 50px;
+            align-items: center;     
+        }
+
+        #ammount,#count{
+            font-size: 18px;
+            font-weight: 700;
+            border: 2px solid lightskyblue;
+            padding: 5px;
+            width: 240px;
+            height: 30px;
+           padding-bottom: 20px;
+           
+        }
+
+        #count{
+      margin-top: 5px;
+
+        }
+
+        label{
+        
+             font-weight: 700;
+             font-size: 18px;
+        }
+        #submit{
+            margin-left: 0;
+        }
+
+        #procede{
+            margin-left: 0;
+        }
+   
+
+
+    </style>
+</head>
+<body>
+<h1> Your Shoping Cart </h1>
+<div id="container">
+  <div id="dataDiv">
+<div id="data"></div>
+</div>
+
+<div id="total">
+ <div id="ammount"> </div>
+ <div id="count"> </div>
+ <label for="inpval">Enter PromoCode</label>
+   <input type="text" id="inpval" placeholder="Apply Promo">
+   <button onclick="sub()" id="submit">submit</button>
+   <button onclick="payment()" id="procede">Proceed to Checkout</button>
+
+ </div>
+ 
+
+</div>
+
+<script>
+
+ var data_div = document.getElementById("data");
+
+function appendLocations(el) {
+  //apend  1
+  var data_div = document.getElementById("data"); ///  crating html structure
+
+  var div = document.createElement("div"); // for each location create 1 div
+
+  let p_name = document.createElement("p");
+  p_name.innerHTML = el.title;
+
+  let p_price = document.createElement("p");
+  p_price.innerHTML ="₹ "+ el.price ;
+
+  let img = document.createElement("img");
+  img.src = el.image;
+
+  div.append( img,p_name, p_price,);
+
+  data_div.append(div);
+}
+
+
+function showLocation() {  // it will run when refresh the page
+    
+    let data = JSON.parse(localStorage.getItem('cart'))
+    data_div.innerHTML = null; // to avoid the multiple of image at once add
+    
+    data.forEach(function (el) {
+        appendLocations(el); //1
+    })
+}
+ showLocation() //2
+
+
+ function cartcount() {
+  let data = JSON.parse(localStorage.getItem("cart"));
+  let sum = 0;
+  for (let i = 0; i < data.length; i++) {
+    sum = i+1;
+  }
+  document.getElementById("count").innerHTML = "Items  : "+ sum+ " no.";
+}
+cartcount();
+
+
+ //amount
+ function cartsum() {
+  let data = JSON.parse(localStorage.getItem("cart"));
+  let sum = 0;
+  for (let i = 0; i < data.length; i++) {
+    sum += Number(data[i].price);
+  }
+  document.getElementById("ammount").innerHTML = "Cart Value  : ₹  " + sum.toFixed(2);
+  sum.toFixed(2)
+  localStorage.setItem("total", JSON.stringify(sum));
+}
+cartsum();
+
+
+function sub(){
+let amt=  document.getElementById("ammount")
+let promo=document.getElementById('inpval').value;
+if(promo=="masai30"){
+let x = document.getElementById("ammount").innerHTML 
+// //for amoubt to discount
+xnum = Number(x.split(" ")[6])
+let discount= (xnum *(30/100))
+
+  document.getElementById("ammount").innerHTML = "Cart Value  : ₹  " + (xnum-discount).toFixed(2);
+let sum = (xnum-discount).toFixed(2)
+  localStorage.setItem("total", JSON.stringify(sum));
+}else{  
+  alert("Promo Code not Valid")
+}
+
+}
+
+
+function payment() {
+     window.location.href = "checkout.html";
+}
+
+
+</script>
+    
+</body>
+</html>
