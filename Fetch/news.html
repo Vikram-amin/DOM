@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+#container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+
+  margin-top: 5%;
+  margin-left: 5%;
+  margin-right: 5%;
+
+  grid-gap: 20px;
+}
+
+#container > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #cecece;
+  padding: 20px;
+  line-height: 25px;
+}
+
+img {
+  width: 200px;
+  height: 200px;
+}
+    </style>
+</head>
+<body>
+    <br>
+
+    <input type="text" id="country" placeholder="enter country code - ex : us , in">
+    <button onclick="getData()">Search</button>
+
+    <div id="container"></div>
+    <script>
+ 
+     let container = document.getElementById("container")
+
+        async function getData(){
+         try{
+          let countryCode = document.getElementById("country").value;
+            let res = await fetch(`https://newsapi.org/v2/top-headlines?country=${countryCode}&apiKey=860f0bfe2a1247128748d8b7c0f1880c`)
+            let data = await res.json();
+           // console.log(data)
+             displayData(data)
+         }catch(err){
+            console.log(err)
+         }
+     }
+
+function displayData(data) {
+container.innerHTML=""
+data.articles.forEach(function (el) {
+
+  let div = document.createElement("div");
+
+  let img = document.createElement("img");
+  img.src = el.urlToImage;
+  let title = document.createElement("p");
+  title.textContent = el.title;
+  let author = document.createElement('p');
+  author.textContent = "author : "+el.author
+
+  div.append(img, title, author);
+  container.append(div);
+});
+    }
+
+
+   
+    </script>
+</body>
+</html>

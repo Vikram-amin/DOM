@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+
+
+#container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+
+  margin-top: 5%;
+  margin-left: 5%;
+  margin-right: 5%;
+
+  grid-gap: 20px;
+}
+
+#container > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #cecece;
+  padding: 20px;
+  line-height: 25px;
+}
+
+img {
+  width: 200px;
+  height: 200px;
+}
+
+input{
+    width: 250px;
+    height: 30px;
+    font-size: 16px;
+    border: 2px solid teal;
+   padding-left: 20px;
+}
+button{
+    width: 150px;
+    height: 25px;
+}
+
+
+    </style>
+</head>
+<body>
+    <br>
+
+    <input type="text" id="country" placeholder="Ex : bitcoin, apple">
+    <button onclick="getData()">Search</button>
+
+    <div id="container"></div>
+    <script>
+ 
+     let container = document.getElementById("container")
+
+        async function getData(){
+         try{
+          let topic = document.getElementById("country").value;
+            let res = await fetch(`https://newsapi.org/v2/top-headlines?q=${topic}&apiKey=860f0bfe2a1247128748d8b7c0f1880c`)
+            let data = await res.json();
+             displayData(data)
+         }catch(err){
+            console.log(err)
+         }
+     }
+
+function displayData(data) {
+container.innerHTML=""
+data.articles.forEach(function (el) {
+  
+  let div = document.createElement("div");
+  div.setAttribute('class','boxdiv')
+
+  let img = document.createElement("img");
+  img.src = el.urlToImage;
+  let title = document.createElement("p");
+  title.textContent = el.title;
+  let author = document.createElement('p');
+  author.textContent = "author : "+el.author
+  let description = document.createElement('p');
+  description.textContent = el.description
+
+  div.append(img, title, description, author);
+  container.append(div);
+});
+    }
+
+
+   
+    </script>
+</body>
+</html>

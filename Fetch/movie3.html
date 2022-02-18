@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container {
+            
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+
+  margin-top: 5%;
+  margin-left: 5%;
+  margin-right: 5%;
+
+  grid-gap: 20px;
+}
+
+#container > div {
+    margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #cecece;
+  padding: 20px;
+  line-height: 25px;
+}
+p{
+    margin: 0;
+    padding: 2px;
+}
+
+img {
+  width: 200px;
+  height: 200px;
+  
+}
+
+input{
+    width: 250px;
+    height: 30px;
+    font-size: 16px;
+    border: 2px solid teal;
+   padding-left: 20px;
+}
+button{
+    width: 150px;
+    height: 25px;
+}
+
+.errImg{
+border: 2px solid black;
+width: 500px;
+height: 300px;
+margin-left: 50%;
+}
+
+.rimg{
+    width: 50px;
+    height: 50px;
+}
+
+#bottomDiv{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+
+
+
+    </style>
+</head>
+<body>
+
+    <input type="text" id="name">
+    <button onclick="getData()">Search</button>
+
+    <div id="container"></div>
+
+    <script>
+          let API_KEY = "77946b66"; 
+        
+          
+
+          let container = document.getElementById("container")
+     
+        async function getData(){
+         try{
+             let movie = document.getElementById("name").value;
+             let res = await fetch(`http://www.omdbapi.com/?apikey=${API_KEY}&s=${movie}`)
+             let data = await res.json()
+      
+             displayData(data.Search)
+             }
+              catch(err){
+              let errImg = document.createElement('img');
+              errImg.src = "https://cdn3.vectorstock.com/i/1000x1000/76/97/404-error-page-not-found-on-website-page-vector-20897697.jpg";
+
+              errImg.setAttribute('class','errImg')
+              container.append(errImg)
+
+            }
+            
+        }
+
+    function displayData(el){
+     
+         container.innerHTML=""
+
+         el.forEach(data => {
+
+         
+        let div = document.createElement('div');
+        let bottomdiv = document.createElement('div');
+        bottomdiv.setAttribute('id','bottomDiv')
+        let paradiv = document.createElement('div');
+        let rimgdiv = document.createElement('div');
+        rimgdiv.setAttribute('id','rimgDiv')
+
+
+        let title = document.createElement('p');
+        title.textContent = data.Title
+
+        let img = document.createElement('img');
+        img.src = data.Poster;
+
+        let year = document.createElement('p');
+        year.textContent = data.Year
+
+        let rating = document.createElement('p');
+        let value = (Math.random()*10).toFixed(1);
+        rating.textContent = "Rating : "+ value;
+
+        rimg = document.createElement('img');
+        rimg.setAttribute("class",'rimg')
+        if(value > 8.5){
+            rimg.src = "https://t4.ftcdn.net/jpg/03/06/09/79/240_F_306097906_R5F9oBt570nlmV3kppBvmhbMDADCGitY.jpg"
+        }
+
+        paradiv.append(title,year,rating)
+        rimgdiv.append(rimg)
+        bottomdiv.append(paradiv,rimgdiv)
+        
+
+        div.append(img,bottomdiv);
+        container.append(div)
+    })
+
+     }
+
+
+    </script>
+    
+</body>
+</html>
