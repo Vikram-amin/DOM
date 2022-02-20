@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container {
+            
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+
+  margin-top: 5%;
+  margin-left: 5%;
+  margin-right: 5%;
+
+  grid-gap: 20px;
+}
+
+#container > div {
+    margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #cecece;
+  padding: 20px;
+  line-height: 25px;
+}
+p{
+    margin: 0;
+    padding: 2px;
+}
+
+img {
+  width: 200px;
+  height: 200px;
+  
+}
+
+input {
+    width: 300px;
+    height: 30px;
+    font-size: 16px;
+    border: 2px solid teal;
+    padding-left: 20px;
+    margin: 10px 0px 0px 70%;
+}
+
+#movies{
+    width: 300px;
+    height: 450px;
+    padding-left: 20px;
+    margin-left:70%;
+    border: 2px solid lightgray;
+    background-color: #0C101A;
+    padding-top: 0;
+    overflow-y:scroll;
+}
+
+.listDiv{
+    width: 90%;
+    margin: 10px;
+    height: 100px;
+    display: flex;
+    border: 1px solid rgb(145, 134, 134);
+}
+p{
+    color: white;
+    padding: 10px;
+    width: 100px;
+}
+
+.listDiv img{
+    width: 200px;
+    height: 95%;
+}
+
+    </style>
+</head>
+<body>
+
+    <input type="text" id="name" oninput="debounce(main,1000)">
+    <div id="movies"></div>
+
+
+    <div id="container"></div>
+
+    <script>
+          let API_KEY = "77946b66"; 
+          let container = document.getElementById("container")
+          let movielist = document.getElementById("movies")
+
+         async function main(){
+             let data = await searchMovie()
+             if(data === undefined){
+                 return false
+             }else{
+                displaySearch(data)
+             }
+         }
+     
+        async function searchMovie(){
+         try{
+             let movie = document.getElementById("name").value;
+             let res = await fetch(`http://www.omdbapi.com/?apikey=${API_KEY}&s=${movie}`)
+             let data = await res.json()
+      
+             return data.Search;
+             }
+              catch(err){
+                  console.log(err)
+            }
+        }
+
+    function displaySearch(el){
+        movielist.innerHTML=""
+
+         el.forEach(data => { 
+        let div = document.createElement('div');
+        div.setAttribute('class','listDiv')
+
+        let title = document.createElement('p');
+        title.textContent = data.Title
+
+        let img = document.createElement('img');
+        img.src = data.Poster;
+        
+        div.append(img,title);
+
+        movielist.append(div)
+    })
+     }
+
+
+     let timerId;
+     function debounce(callBack,dealy){
+
+        if(timerId){ // at starting timer isd is undefined so
+        clearTimeout(timerId)
+        }
+        
+        timerId = setTimeout(()=>{
+          callBack()
+         },dealy)
+
+     }
+
+    //  let searchedMovie = document.querySelector('#movies').textContent
+    //  console.log(searchedMovie)
+
+
+    </script>
+    
+</body>
+</html>
