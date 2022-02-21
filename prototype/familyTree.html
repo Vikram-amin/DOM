@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+
+    // const grandParent = {
+    //     grandFatherName : "Basava",
+    //     grandMotherName : "Muthu",
+    //     SurName : "Poojary",
+    //     SkinColor : "brown",
+    // }
+
+    // const parent = Object.create(grandParent);
+    //       parent.FatherName ="Krishna"
+    //       parent.MotherName ="Vijaya"
+
+    // const son = Object.create(parent);
+    // son.name = "Vikram"
+
+    // console.log(son.SurName)
+
+// constuctor function 
+
+function GrandParent(){
+    this.GrandFather='Basava';
+    this.GrandMother='Muthu';
+    this.SurName = "Poojary";
+    this.SkinColor = "brown";
+}
+
+var parents ={
+    Father:'Krishna',
+    Mother:'Vijaya'
+}
+
+var childern={
+    Son:"Vikram",
+}
+
+GrandParent.prototype = parents;
+parents.prototype = childern;
+
+var Family= new GrandParent()
+
+console.log(Family.Father)
+
+</script>
+</head>
+<body>
+    
+</body>
+</html>

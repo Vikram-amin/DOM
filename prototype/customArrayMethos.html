@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+</head>
+<body>
+
+    <script>
+        function Myarray(){
+            Object.defineProperty(this,"length",{ //remove length from array
+                value:0,
+                writable:true,
+                enumerable:false, //loopable
+                configurable:true, //can make changes true
+            })
+
+            for(let i = 0; i < arguments.length; i++){
+                this[i] = arguments[i];
+                this.length = arguments.length;
+            }
+        }
+
+
+        //push
+        Myarray.prototype.push = function(el){
+            let index = this.length;
+            this[index] = el;
+            this.length++
+        }
+
+        //pop
+        Myarray.prototype.pop = function(el){
+            let index = this.length-1;
+            let popedElement = this[index];
+            delete this[index];
+            this.length--;
+            return popedElement
+        };
+
+        // reverse
+        Myarray.prototype.reverse = function () {
+            let length = this.length-1;
+            let i=0;
+            while(i<length){
+                let swap= this[i];
+                this[i] = this[length];
+                this[length] = swap;
+                i++;
+                length--;
+                }
+            };
+  
+        //first element
+        Myarray.prototype.firstElement = function(el){
+            let index = 0;
+            let firstElement = this[index];
+            return firstElement;
+        };
+
+        let arr = new Myarray(101,102,103,105,105);
+
+        arr.push(106)
+        console.log(arr) 
+        console.log(arr.pop())
+        arr.reverse();
+        console.log(arr)
+        console.log(arr.firstElement()) // print first element
+
+        console.log(Object.values(arr)) //print in array format
+      
+    </script>
+    
+</body>
+</html>
