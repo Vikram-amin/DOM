@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+ <script src="https://kit.fontawesome.com/62c318d183.js" crossorigin="anonymous"></script>
+ <link rel="stylesheet" href="payment.css">
+     
+<title>Check out page</title>
+
+ 
+</head>
+<body>
+
+
+
+     <div class="paytop">Payment </div>  
+     <d id="checkContainer">
+         <div id="checkparent">
+       
+                <div id="shipBoxParent" >
+                 <h3>How do you want to pay?</h3>
+                 <div>
+                <div id="shipBox">
+                    <span>Credit /</span> 
+                    <span>Debit card</span>
+                    <span><i class="fab fa-cc-visa"></i></span>
+                  
+                </div>
+                <div>
+                  <div id="payRight"> 
+                       <div class="col-50">
+                        <h3>Payment</h3>
+                        <label for="cname">Name on Card</label>
+                        <input type="text" id="cname" name="cardname" placeholder="Vikram">
+                        <label for="ccnum">Credit card number</label>
+                        <input type="text" id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444">
+                        <label for="expmonth">Exp Month</label>
+                        <input type="text" id="expmonth" name="expmonth" placeholder="September">
+                        <div class="row">
+                            <div class="col-50">
+                                <label for="expyear">Exp Year</label>
+                                <input type="text" id="expyear" name="expyear" placeholder="2018">
+                            </div>
+                            <div class="col-50">
+                                <label for="cvv">CVV</label>
+                                <input type="text" id="cvv" name="cvv" placeholder="352">
+                            </div>
+                        </div>
+                          <label>
+                    <input type="checkbox" checked="checked" name="sameadr"> Shipping address same as billing
+                </label>
+                <input type="button" id="donechek" value="Continue to checkout" class="btn">
+                    </div>
+             </div>
+              </div>
+                </div>
+                </div>
+         
+
+
+                
+                   
+
+
+ <div id="checkcolright">
+
+<div class="summary">
+  <div>
+   <div id="total">
+     <div><span>Est. Total:</span> <span id="ammount">₹ 0</span></div> 
+    </div>
+  </div>
+</div>
+</div>  
+
+
+</body>
+
+
+<script >
+    function appenderforchkout() {
+  let sum1 = JSON.parse(localStorage.getItem(`total`));
+sum1.toFixed(2)
+  document.getElementById("ammount").innerHTML = "₹  " + sum1;
+    
+}
+appenderforchkout();
+
+function validation() {
+  let cname = document.getElementById(`cname`);
+  let cnum = document.getElementById("cnum");
+  let expmonth = document.getElementById(`expmonth`);
+  let expyear = document.getElementById(`expyear`);
+  let cvv = document.getElementById(`cvv`);
+  if (
+    cname && cnum && cvv && expmonth && expyear ) {
+    alert(`all filed need to be field`);
+  } else {
+      payment()
+  }
+}
+
+document.getElementById(`donechek`).onclick = function () {
+  validation();
+};
+
+async function payment(){
+    await delay(3000)
+}
+
+
+function delay(time){
+    setTimeout(function(){
+        window.location.href = "successfulpayment.html";
+    },time)
+}
+
+</script>
+</html>

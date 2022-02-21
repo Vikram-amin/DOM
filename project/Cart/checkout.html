@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="payment.css">
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="paytop">Checkout </div>  
+    <div id="checkContainer">
+        <div id="checkparent">
+      
+            <div id="checkcolleft">
+               <div class="paytop"> </div> 
+               <div id="shipBoxParent" >
+                <h3>How would you like to get your order?</h3>
+                <div>
+               <div id="shipBox" onclick="openForm()">
+                   <span>Ship to</span> 
+                   <span>Your Location</span>
+                   <span><i class="far fa-building"></i></span>
+                 
+               </div>
+               <div>
+                 <div id="addressRight">   
+                     <div class="col-50">
+                       <h3>Billing Address</h3>
+                       <label for="fname"><i class="fa fa-user"></i> Full Name</label>
+                       <input type="text" id="fname" name="firstname" placeholder="Name">
+                       <label for="email"><i class="fa fa-envelope"></i> Email</label>
+                       <input type="text" id="email" name="email" placeholder="email@example.com">
+                       <label for="adr"><i class="fa fa-address-card-o"></i> Address</label>
+                       <input type="text" id="adr" name="address" placeholder="you address">
+                       <label for="city"><i class="fa fa-institution"></i> City</label>
+                       <input type="text" id="city" name="city" placeholder="Udupi">
+
+                       <div class="row">
+                           <div class="col-50">
+                               <label for="state">State</label>
+                               <input type="text" id="state" name="state" placeholder="NY">
+                           </div>
+                           <div class="col-50">
+                               <label for="zip">Zip</label>
+                               <input type="text" id="zip" name="zip" placeholder="10001">
+                           </div>
+                       </div>
+            
+                    <input type="button" id="donechek" value="Continue to payment" class="btn">
+               
+                      </div>
+                 </div>
+               </div>
+               </div>
+               </div>
+            </div>
+   
+
+    <div id="checkcolright">
+
+        <div class="summary">
+          <div>
+           <div id="total">
+             <div><span>Est. Total:</span> <span id="ammount">₹ 0</span></div> 
+            </div>
+          </div>
+        </div>
+        </div>  
+
+    
+
+        <script >
+
+        function appenderforchkout() {
+          let sum1 = JSON.parse(localStorage.getItem(`total`));
+         sum1.toFixed(2)
+          document.getElementById("ammount").innerHTML = "₹  " + sum1;
+            
+        }
+        appenderforchkout();
+        
+        function validation() {
+          let name = document.getElementById(`fname`);
+          let email = document.getElementById(`email`);
+          let address = document.getElementById(`adr`);
+          let city = document.getElementById(`city`);
+          let state = document.getElementById(`state`);
+          let zip = document.getElementById(`zip`);
+          if (
+            email.value == "" ||
+            name == "" ||
+            address == "" ||
+            city == "" ||
+            state == "" ||
+            zip == ""
+          ) {
+            alert(`all filed need to be field`);
+          } else {
+            window.location.href = "payment.html";
+        
+           
+          }
+        }
+        
+        document.getElementById(`donechek`).onclick = function () {
+          validation();
+        };
+        
+     
+        
+        </script>
+    
+</body>
+</html>

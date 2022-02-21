@@ -1,0 +1,329 @@
+body {
+    font-family: Whitney,Helvetica,Arial,sans-serif!important;
+}
+
+/* ==================================================================cart */
+
+
+  .summary{
+             width: 95%;
+             padding-right: 10px;
+             margin-top: 15px;
+             /* border: 2px solid orange; */
+           
+
+         }
+         .shop{
+               width: 75%;
+         }
+
+         .emailB {
+             display: flex;
+             margin-top: 30px;
+            
+             
+         }
+         .emailB button:first-child{
+             margin-left: 33%;
+             margin-right: 10px;
+              width: 100px;
+              height: 30px;
+              
+            
+         }
+           .emailB button:last-child{
+              width: 100px;
+              height: 30px;
+            
+         }
+
+         .summaryBox{
+            font-size: 18px;
+            font-family: 'Open Sans Condensed', sans-serif;
+            letter-spacing: 1px;
+            vertical-align: baseline;
+            color: #222;
+            font-weight: 700;
+            margin-left: 25px;
+            margin-top: 30px;
+          
+         }
+
+         .itemsB{
+          width: 90%;
+          margin: auto;
+          font-size: 14px;
+          
+         }
+          .itemsB > div:nth-child(1){
+               display: flex;
+              justify-content: space-between;
+              margin: 10px;
+          }
+
+         .itemsB > div:nth-child(2){
+               display: flex;
+              justify-content: space-between;
+               margin: 10px;
+          }
+         .itemsB > div:nth-child(3){
+               display: flex;
+              justify-content: space-between;
+               margin: 10px;
+          }
+
+           /* .itemsB
+            .itemsB */
+
+            .paraBoxB{
+                width: 92%;
+                margin: auto;
+                margin-top: 50px;
+            
+            }
+
+            .cartfooter img{
+              width: 134%;
+              margin-top: 50px;
+            }
+            .promo{
+                width: 90%;
+                margin: auto;
+                margin-bottom: 30px;
+                border-top: 2px solid;
+                border-bottom: 2px solid;
+            }
+
+            .promo .appltbtn {
+              display: flex;
+              justify-content: space-between;
+               margin: 10px;
+              font-size: 16px;
+              font-family: 'Open Sans Condensed', sans-serif;
+              letter-spacing: 1px;
+              vertical-align: baseline;
+              color: #222;
+              font-weight: 700;
+              margin-left: 20px;
+              margin-top: 10px;
+             
+            }
+
+            .promo .appltbtn:hover{
+                color: blue;
+            }
+
+            .promo input{
+                width: 60%;
+                height: 25px;
+            }
+
+            .promo button{
+                width: 30%;
+                height: 25px;
+                font-size: 14px;
+                font-weight: 700;
+            }
+
+
+            #total + div{
+                display: flex;
+                
+            }
+
+            #total span{
+                justify-content: space-between;
+            }
+
+            #total > div:nth-child(1){
+               display: flex;
+              justify-content: space-between;
+              margin: 20px;
+              font-size: 20px;
+          }
+
+          #total button{
+              width: 95%;
+              margin: auto;
+              background-color: #F39834;
+              border:1px solid #d60;
+              height: 30px;
+              margin-left: 10px;
+              font-weight: 700;
+              
+          }
+
+
+
+
+/* ==================================================================cart */
+     .paytop{
+             font-size: 25px;
+             font-family: 'Open Sans Condensed', sans-serif;
+             letter-spacing: 1px;
+             vertical-align: baseline;
+             color: #222;           
+             margin-left: 20px;
+             margin-top: 20px;
+         }
+
+        #checkparent{
+            width: 100%;
+            display: flex;
+            /* border: 2px solid rebeccapurple; */
+        }
+
+        #checkcolleft{
+            width: 75%;
+        }
+        #checkcolright{
+            width: 25%;
+            
+        }
+
+        #shipBox{
+            width: 200px;
+            height: 40px;
+            border: 2px solid purple;
+            padding: 20px;
+            position: relative;
+        }
+       #shipBox >span:last-child{
+           font-size: 30px;
+            position: absolute;
+            top: 30%;
+       }
+
+       #shipBox >span:nth-child(1){
+         font-size: 18px;
+         display: block;
+       }
+
+         #shipBox >span:nth-child(2){
+         font-size: 18px ;
+         color:orange;
+         font-weight: 700;
+         padding-top: 20px;
+       }
+
+         #shipBox >span:nth-child(3){
+          padding-left: 50px;
+       }
+
+        #shipBoxParent{
+            margin-left: 8%;
+           
+        }
+        
+        #shipBoxParent h3{
+            font-size: 20px;
+
+        }
+
+        #shipBoxParent > div{
+            display: flex;
+
+        }
+
+        #addressRight{
+            width: 60%;
+            height: 100vh;
+            border: 2px solid#222;
+            margin-left: 150px;
+            margin-top: -40px;
+        }
+
+            #payRight{
+            width: 60%;
+            height: 100vh;
+            border: 2px solid #222;
+            margin-left: 150px;
+            margin-top: -40px;
+        }
+
+
+
+
+/* 
+//======================================================================adress */
+
+
+.row {
+  display: -ms-flexbox; /* IE10 */
+  display: flex;
+  -ms-flex-wrap: wrap; /* IE10 */
+  flex-wrap: wrap;
+  margin: 0 -16px;
+}
+
+.col-25 {
+  -ms-flex: 25%; /* IE10 */
+  flex: 25%;
+}
+
+.col-50 {
+  -ms-flex: 50%; /* IE10 */
+  flex: 50%;
+}
+
+.col-75 {
+  -ms-flex: 75%; /* IE10 */
+  flex: 75%;
+}
+
+.col-25,
+.col-50,
+.col-75 {
+  padding: 0 16px;
+}
+
+.container {
+  background-color: #f2f2f2;
+  padding: 5px 20px 15px 20px;
+
+  border-radius: 3px;
+}
+
+input[type="text"] {
+  width: 80%;
+  height: 20px;
+  margin-bottom: 20px;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+label {
+  margin-bottom: 5px;
+  display: block;
+}
+
+.icon-container {
+  margin-bottom: 20px;
+  padding: 7px 0;
+  font-size: 24px;
+}
+
+.btn {
+  background-color: teal;
+  color: white;
+  padding: 12px;
+  margin: 10px 0;
+  border: none;
+  width: 100%;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 17px;
+}
+
+.btn:hover {
+  background-color: orange;
+}
+
+a {
+  color: #2196f3;
+}
+
+hr {
+  border: 1px solid lightgrey;
+}
