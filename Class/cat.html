@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Cat{
+            constructor(legs,tails,claws,whiskers){
+                this.legs = legs;
+                this.tails = tails;
+                this.claws = claws;
+                this.whiskers = whiskers;
+            }
+        }
+
+        class Tiger extends Cat{
+            constructor(legs,tails,claws,whiskers,speed,weight,claimb){
+                super(legs,tails,claws,whiskers)
+                this.speed = speed;
+                this.weight = weight;
+                this.claimb = claimb;
+            }
+        }
+
+        let tiger = new Tiger(4,true,'sharp',true,70,'300kg',false);
+        console.log(tiger)
+
+
+    </script>
+    
+</body>
+</html>

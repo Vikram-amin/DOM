@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+
+        ///////////////////////////////////constructor//
+
+        function Person1(name,age){
+            this.name = name;
+            this.age = age;
+        }
+
+        function Student1(name,age,id,college){
+            Person1.call(this,name,age);
+            this.id = id;
+            this.college = college; 
+        }
+
+        let res1 = new Student1('vikram',24,234,"nitte")
+        console.log(res1)
+     
+
+
+        
+        
+
+        //////////////////////////////////class///
+
+        class Person2{
+            constructor(name, age){
+                this.name = name;
+                this.age = age;
+            }
+        }
+
+        class Student2 extends Person2{
+            constructor(name,age,id,college){
+                super(name,age);
+                this.id = id;
+                this.college = college;
+
+            }
+        }
+
+        let res2 = new Student2('jhon',27,420,"manglore")
+        console.log(res2)
+ 
+
+
+
+    </script>
+    
+</body>
+</html>
