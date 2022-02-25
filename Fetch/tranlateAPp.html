@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container{
+            display: flex;
+            width: 70%;
+            min-height: 400px;
+            margin: auto;
+            margin-top: 100px;
+
+        }
+
+        #input_section, #output_section{
+            flex: 1;
+            border: 2px solid black;
+            margin: 5px;
+
+        }
+
+        #input_text{
+            height: 75%;
+            width: 86%;;
+            margin: auto;
+           margin: 15px 0px 20px 11px;
+           background-color: rgba(24,24,27, 0.6);
+           opacity: 1;
+           font-size: 18px;
+           padding: 20px;
+           line-height: 25px;
+
+        }
+
+        select , button{
+            width: 250px;
+            height: 25px;
+            margin: 5px -15px 0px 40%;
+        }
+
+        #tranalated_text{
+            font-size: 18px;
+           padding: 20px;
+           line-height: 25px;
+
+        }
+
+     
+
+    </style>
+    
+</head>
+<body>
+    <div id="container">
+        <div id="input_section">
+            <button onclick="tanslateMyText()" >Translate</button>
+      
+            <textarea id="input_text" ></textarea>
+        </div>
+        <div id="output_section">
+            <select  id="translateTo" onchange="tanslateMyText()">
+                <option value="hi">Hindi</option>
+                <option value="en">English</option>
+                <option value="ar">Arabic</option>
+                <option value="fr">French</option>
+                <option value="it">Italian</option>
+                <option value="ja">Japanese</option>
+                <option value="ko">Korean</option>
+                <option value="ru">Russion</option>
+            </select>
+            <p id="tranalated_text"></p>
+        </div>
+    </div>
+
+    <script>
+
+        async function tanslateMyText(){
+            try {
+                let input = document.getElementById('input_text').value;
+                let translateTo = document.getElementById('translateTo').value
+               // let translatefrom = document.getElementById('translatefrom').value
+               // console.log(translateTo)
+                const res = await fetch("https://libretranslate.de/translate", {
+                        method: "POST",
+                        body: JSON.stringify({
+                            q: input,
+                            source: 'en',
+                            target: translateTo,
+                            format: "text"
+                        }),
+                        headers: { "Content-Type": "application/json" }
+                    });
+                        const data = await res.json()
+                        console.log(data);
+
+                        let translatedTextpara = document.getElementById('tranalated_text')
+                       dispalyData(data,translatedTextpara)
+            } catch (err) {
+                
+            }
+        }
+
+
+        function dispalyData(data,parent){
+            parent.innerText = data.translatedText
+        }
+    </script>
+</body>
+</html>
