@@ -79,24 +79,24 @@
 
 <script >
     function appenderforchkout() {
-  let sum1 = JSON.parse(localStorage.getItem(`total`));
-sum1.toFixed(2)
-  document.getElementById("ammount").innerHTML = "₹  " + sum1;
+      let sum = JSON.parse(localStorage.getItem(`total`));
+          let total = Number(sum)
+          total.toFixed(2)
+          document.getElementById("ammount").innerHTML = "₹  " + total;
     
 }
 appenderforchkout();
 
 function validation() {
-  let cname = document.getElementById(`cname`);
-  let cnum = document.getElementById("cnum");
-  let expmonth = document.getElementById(`expmonth`);
-  let expyear = document.getElementById(`expyear`);
-  let cvv = document.getElementById(`cvv`);
-  if (
-    cname && cnum && cvv && expmonth && expyear ) {
-    alert(`all filed need to be field`);
-  } else {
+  let cname = document.getElementById(`cname`).value;
+  let cnum = document.getElementById("ccnum").value;
+  let expmonth = document.getElementById(`expmonth`).value;
+  let expyear = document.getElementById(`expyear`).value;
+  let cvv = document.getElementById(`cvv`).value;
+  if (cname && cnum && cvv && expmonth && expyear ) {
       payment()
+  } else {
+      alert(`all filed need to be field`);
   }
 }
 

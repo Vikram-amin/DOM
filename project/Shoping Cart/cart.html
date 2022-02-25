@@ -182,9 +182,10 @@ cartcount();
   for (let i = 0; i < data.length; i++) {
     sum += Number(data[i].price);
   }
-  document.getElementById("ammount").innerHTML = "Cart Value  : ₹  " + sum.toFixed(2);
-  sum.toFixed(2)
-  localStorage.setItem("total", JSON.stringify(sum));
+  let total = sum.toFixed(2)
+  document.getElementById("ammount").innerHTML = "Cart Value  : ₹  " + total;
+
+  localStorage.setItem("total", JSON.stringify(total));
 }
 cartsum();
 
@@ -199,6 +200,7 @@ xnum = Number(x.split(" ")[6])
 let discount= (xnum *(30/100))
 
   document.getElementById("ammount").innerHTML = "Cart Value  : ₹  " + (xnum-discount).toFixed(2);
+
 let sum = (xnum-discount).toFixed(2)
   localStorage.setItem("total", JSON.stringify(sum));
 }else{  

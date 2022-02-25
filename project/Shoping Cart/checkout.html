@@ -74,9 +74,11 @@
         <script >
 
         function appenderforchkout() {
-          let sum1 = JSON.parse(localStorage.getItem(`total`));
-         sum1.toFixed(2)
-          document.getElementById("ammount").innerHTML = "₹  " + sum1;
+          let sum = JSON.parse(localStorage.getItem(`total`));
+          let total = Number(sum)
+          total.toFixed(2)
+          document.getElementById("ammount").innerHTML = "₹  " + total;
+        
             
         }
         appenderforchkout();
