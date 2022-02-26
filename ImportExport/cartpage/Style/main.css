@@ -1,0 +1,45 @@
+#navbar {
+    display: flex;
+    justify-content: space-between;
+    padding-left: 4%;
+    padding-right: 4%;
+    border: solid 1px black;
+  }
+
+  .options {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+  }
+
+  .options h3 {
+    padding-left: 30px;
+    padding-right: 10px;
+  }
+
+
+  #container {
+   width: 90%;
+   margin: auto;
+   text-align: center;
+   display: grid;
+   grid-template-columns: repeat(4, 1fr);
+   margin-top: 5%;
+   margin-left: 5%;
+   margin-right: 5%;
+   grid-gap: 20px;
+ }
+
+#container > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #cecece;
+  padding: 20px;
+}
+
+img {
+  width: 200px;
+  height: 200px;
+}
