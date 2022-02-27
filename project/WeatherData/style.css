@@ -1,0 +1,123 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-image: url('https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8d2VhdGhlcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    overflow:hidden;
+    height: 100vh;
+    font-family: 'Poppins', sans-serif;
+}
+
+#container{
+    padding: 20px 70px;
+    color:#fff;
+    position: relative;
+}
+
+#current-info{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  
+}
+
+#input{
+    position: absolute;
+    top: 1vh;
+    left: 35%;
+    font-size: 50px;
+
+}
+
+button{
+    width: 150px;
+    height: 25px;
+    border: 2px solid teal;
+    border-radius: 10px;
+}
+
+input{
+    width: 300px;
+    height: 30px;
+    border: 2px solid teal;
+    border-radius: 10px;
+}
+.date-container{
+    font-weight: 100;
+}
+.date-container #time{
+    font-size: 70px;
+}
+
+.date-container #am-pm{
+    font-size: 30px;
+    margin-left: 20px;
+}
+
+.date-container #date{
+    font-size: 30px;
+}
+
+.place-container{
+   
+    position: absolute;
+    right: 100px;
+    top: 4vh;
+}
+
+.place-container .time-zone{
+    font-size: 30px;
+    font-weight: 100;
+}
+
+.place-container .country{
+    font-size: 12px;
+    font-weight: 700;
+    margin-left: 90%;
+}
+
+#location{
+    position: absolute;
+    right: 20px;
+    top: 110px;
+}
+iframe{
+    background: rgba(24,24,27, 0.6);
+    padding:10px;
+    border-radius: 10px;
+}
+
+
+
+/* 
+#current-info .others{
+    display: flex;
+    flex-direction: column;
+    background: rgba(24,24,27, 0.6);
+    padding:20px;
+    border-radius: 10px;
+    margin: 10px 0;
+    border: 1px solid #eee;
+}
+
+#current-info .others .weather-item{
+    display: flex;
+    justify-content: space-between;
+} */
+
+
+#current-weather-items{
+    display: flex;
+    width: 300px;
+    flex-direction: column;
+    background: rgba(24,24,27, 0.6);
+    padding:15px;
+    border-radius: 10px;
+    margin: 10px 0;
+    border: 1px solid #eee;
+   line-height: 25px;
+}
