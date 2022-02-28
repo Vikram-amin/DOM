@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="btn_click(1)">1</button>
+<button onclick="btn_click(2)">2</button>
+<button onclick="btn_click(3)">3</button>
+<button onclick="btn_click(4)">4</button>
+<button onclick="btn_click(5)">5</button>
+<button onclick="btn_click(6)">6</button>
+<button onclick="btn_click(7)">7</button>
+<button onclick="btn_click(8)">8</button>
+<button onclick="btn_click(9)">9</button>
+<button onclick="btn_click(0)">0</button>
+<h1 id="minEle">143</h1>
+<h1 id="maxEle">2019</h1>
+<h2 id="display"></h2>
+<button onclick="enter()">Enter</button>
+
+<script>
+    var min = 143;
+var max = 2019;
+var output = "";
+var display = document.getElementById("display");
+
+function btn_click(num) {
+  output = output + num;
+  display.textContent = output;
+}
+
+function enter() {
+  var fn = Number(output);
+  if (fn < min) {
+    min  = fn;
+    document.getElementById("minEle").textContent = min;
+  }
+  if (fn > max) {
+    max  = fn;
+    document.getElementById("maxEle").textContent = max;
+  }
+  output= "";
+  display.textContent = output;
+}
+</script>
+</body>
+</html>
