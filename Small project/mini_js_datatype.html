@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button{
+            width: 150px;
+            height: 40px;
+            margin-left: 30px;
+            font-size: 20px;
+            background-color:#616161;
+            color: white;
+           border-radius: 5px;
+        }
+        h1{
+            text-align: center;
+            color: #FF6600;
+        }
+
+        #div{
+            font-size: 22px;
+            line-height:30px;
+            margin-top: 50px;
+            margin-left: 20%;
+        }
+    </style>
+
+
+</head>
+<body>
+
+<h1>Mini JS Datatype</h1>
+<button id="obj">Objects</button>
+<button id="arr">Arrays</button>
+<button id="fn">Function</button>
+<button id="str">Strings</button>
+<button id="num">Numbers</button>
+<button id="null"> null</button>
+<button id="und">undefined</button>
+
+<script>
+var body = document.body;
+let div=document.createElement('div');
+div.setAttribute("id","div")
+
+//object
+let object=document.getElementById("obj");
+let res=true;
+
+function objlist(){
+let ul =document.createElement('ul');
+
+
+let li1= document.createElement('li');
+li1.textContent="In JavaScript, almost everything is an object."
+
+let li2= document.createElement('li');
+li2.textContent="Objects are variables too. But objects can contain many values."
+
+let li3= document.createElement('li');
+li3.textContent="Object values are written as name : value pairs"
+
+let li4= document.createElement('li');
+li4.textContent="Methods are actions that can be performed on objects."
+
+let li5= document.createElement('li');
+li5.textContent="Object properties can be both primitive values, other objects, and functions."
+
+ul.append(li1);
+ul.append(li2);
+ul.append(li3);
+ul.append(li4);
+ul.append(li5);
+
+// body.appendChild(ul);
+div.innerHTML= ul.innerHTML;
+body.appendChild(div)
+
+}
+object.addEventListener('click',objlist)
+
+
+//array
+let array=document.getElementById("arr");
+function arraylist(){
+let ul =document.createElement('ul');
+
+let li1= document.createElement('li');
+li1.textContent="JavaScript arrays are used to store multiple values in a single variable."
+
+let li2= document.createElement('li');
+li2.textContent="An array is a special variable, which can hold more than one value at a time."
+
+let li3= document.createElement('li');
+li3.textContent="An array can hold many values under a single name, and you can access the values by referring to an index number"
+
+let li4= document.createElement('li');
+li4.textContent="You access an array element by referring to the index number:"
+
+let li5= document.createElement('li');
+li5.textContent="With JavaScript, the full array can be accessed by referring to the array name:"
+
+ul.append(li1);
+ul.append(li2);
+ul.append(li3);
+ul.append(li4);
+ul.append(li5);
+
+// body.appendChild(ul);
+div.innerHTML= ul.innerHTML;
+body.appendChild(div)
+
+}
+array.addEventListener('click',arraylist)
+
+
+
+//function
+let fn=document.getElementById("fn");
+function fnlist(){
+let ul =document.createElement('ul');
+
+let li1= document.createElement('li');
+li1.textContent="A JavaScript function is a block of code designed to perform a particular task."
+
+let li2= document.createElement('li');
+li2.textContent="A JavaScript function is executed when something invokes it (calls it)."
+
+let li3= document.createElement('li');
+li3.textContent="A JavaScript function is defined with the function keyword, followed by a name, followed by parentheses ()."
+
+let li4= document.createElement('li');
+li4.textContent="The code inside the function will execute when something  invokes (calls) the function:"
+
+let li5= document.createElement('li');
+li5.textContent="When JavaScript reaches a return statement, the function will stop executing."
+
+ul.append(li1);
+ul.append(li2);
+ul.append(li3);
+ul.append(li4);
+ul.append(li5);
+// body.appendChild(ul);
+div.innerHTML= ul.innerHTML;
+body.appendChild(div)
+
+}
+fn.addEventListener('click',fnlist)
+
+
+//string
+let str=document.getElementById("str");
+function strlist(){
+let ul =document.createElement('ul');
+
+let li1= document.createElement('li');
+li1.textContent="A JavaScript string is zero or more characters written inside quotes"
+
+let li2= document.createElement('li');
+li2.textContent="To find the length of a string, use the built-in length property"
+
+let li3= document.createElement('li');
+li3.textContent="You can also break up a code line within a text string with a single backslash:"
+
+let li4= document.createElement('li');
+li4.textContent="A safer way to break up a string, is to use string addition:"
+
+let li5= document.createElement('li');
+li5.textContent="Normally, JavaScript strings are primitive values, created from literals:"
+
+ul.append(li1);
+ul.append(li2);
+ul.append(li3);
+ul.append(li4);
+ul.append(li5);
+
+// body.appendChild(ul);
+div.innerHTML= ul.innerHTML;
+body.appendChild(div)
+
+}
+str.addEventListener('click',strlist)
+
+
+//num
+let num=document.getElementById("num");
+function numlist(){
+let ul =document.createElement('ul');
+
+let li1= document.createElement('li');
+li1.textContent="JavaScript has only one type of number."
+
+let li2= document.createElement('li');
+li2.textContent="Numbers can be written with, or without, decimals:"
+
+let li3= document.createElement('li');
+li3.textContent="All number methods return a new value. They do not change the original variable."
+
+let li4= document.createElement('li');
+li4.textContent="Extra large or extra small numbers can be written with scientific (exponent) notation:"
+
+let li5= document.createElement('li');
+li5.textContent="If the value cannot be converted to a legal number, NaN is returned."
+
+ul.append(li1);
+ul.append(li2);
+ul.append(li3);
+ul.append(li4);
+ul.append(li5);
+
+// body.appendChild(ul);
+div.innerHTML= ul.innerHTML;
+body.appendChild(div)
+
+}
+num.addEventListener('click',numlist)
+
+
+//null
+let nulll=document.getElementById("null");
+function nulllist(){
+let ul =document.createElement('ul');
+
+let li1= document.createElement('li');
+li1.textContent="The value null represents the intentional absence of any object value."
+
+let li2= document.createElement('li');
+li2.textContent=" It is one of JavaScript's primitive values"
+
+let li3= document.createElement('li');
+li3.textContent="is treated as falsy for boolean operations.";
+
+let li4= document.createElement('li');
+li4.textContent="The value null is written with a literal: null. "
+
+let li5= document.createElement('li');
+li5.textContent="null is not an identifier for a property of the global objec"
+
+ul.append(li1);
+ul.append(li2);
+ul.append(li3);
+ul.append(li4);
+ul.append(li5);
+
+// body.appendChild(ul);
+div.innerHTML= ul.innerHTML;
+body.appendChild(div)
+
+}
+nulll.addEventListener('click',nulllist)
+
+
+
+//undefined
+let und=document.getElementById("und");
+function undlist(){
+let ul =document.createElement('ul');
+
+let li1= document.createElement('li');
+li1.textContent="The undefined property indicates that a variable has not been assigned a value, or not declared at all."
+
+let li2= document.createElement('li');
+li2.textContent=" That is, it is a variable in global scope"
+
+let li3= document.createElement('li');
+li3.textContent="The initial value of undefined is the primitive value undefined."
+
+let li4= document.createElement('li');
+li4.textContent="A variable that has not been assigned a value is of type undefined."
+
+let li5= document.createElement('li');
+li5.textContent="A method or statement also returns undefined if the variable that is being evaluated does not have an assigned value."
+
+ul.append(li1);
+ul.append(li2);
+ul.append(li3);
+ul.append(li4);
+ul.append(li5);
+
+// div.appendChild(ul);
+div.innerHTML= ul.innerHTML;
+body.appendChild(div)
+
+}
+und.addEventListener('click',undlist)
+</script>
+
+</body>
+</html>

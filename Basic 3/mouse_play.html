@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+        <style>
+#container{
+
+ width: 40%;
+ height: 400px;
+ margin: auto;
+ margin-top: 100px;
+ border-radius: 20px;
+ background-color: #4C9BD7;
+}
+#button{
+    width: 130px;
+    height: 30px;
+    float: right;
+    margin: 40px;
+    margin-top: 310px;
+    text-align: center;
+    padding-top:10px ;
+     border-radius: 5px;
+     background-color: #B04739;
+     font-weight: 700;
+    
+}
+    </style>
+
+</head>
+<body>
+    
+ <div id="container">
+   <div id="button">SUBMIT</div>
+   </div>
+    
+<script>
+var click = document.getElementById("container")
+
+
+ function setColor(){
+     document.getElementById("button").style.backgroundColor = "#5AA65F";
+ }
+  function normal(){
+     document.getElementById("button").style.backgroundColor = "#B04739";
+ }
+
+  click.addEventListener('mouseover',setColor)
+  click.addEventListener('mouseout',normal)
+  
+  
+
+</script>
+</body>
+
+</html>

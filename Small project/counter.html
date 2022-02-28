@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+h1{
+    text-align: center;
+    color:  white;
+}
+
+button{
+    border: none;
+    padding: 10px;
+    margin: 20px;
+    color: white;
+    font-size: 30px;
+}
+
+.greenBG{
+    background-color: green;
+}
+.redBG{
+    background-color: red;
+}
+
+
+    </style>
+</head>
+<body>
+    
+<h1>0</h1>
+<div>
+    <button id="add">+</button>
+    <button id="sub">-</button>
+</div>
+
+
+ <script>
+
+ let count=0;
+ 
+ let addBtn=document.getElementById("add");
+ let minBtn=document.getElementById("sub");
+
+ addBtn.setAttribute('class', 'greenBG');
+ minBtn.setAttribute('class', 'redBG');
+
+
+ function increment(){
+     count++;
+     document.querySelector('h1').textContent= count;
+
+     document.querySelector('h1').setAttribute('class','greenBG')  //change color
+
+     if(count ==10){  
+         addBtn.removeEventListener('click',increment)  //stop
+     }
+ }
+
+
+ function decrement(){
+     count--;
+     document.querySelector('h1').textContent= count;
+
+     document.querySelector('h1').setAttribute('class','redBG') //change color
+
+ }
+
+// increment()
+// increment()
+// increment()
+
+ addBtn.addEventListener('click',increment);
+ minBtn.addEventListener('click',decrement)
+
+
+
+  </script>
+</body>
+</html>

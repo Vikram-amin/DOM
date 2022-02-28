@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>Document</title>
+    <style>
+        h1{
+            text-align: center;
+        }
+    </style>
+</head>
+<body id="body">
+    <h1>Random Background Change when resize the window</h1>
+    
+</body>
+<script>
+
+
+    function random(num){
+        return Math.floor(Math.random()*num);
+    }
+    function randomColor(){
+        return 'rgb('+random(255) +','+ random(255) + ',' + random(255) + ')';
+    }
+  
+
+    window.addEventListener("resize", function(){
+      var color_val = randomColor();
+        document.getElementById("body").style.backgroundColor = color_val;
+    })
+
+
+    
+</script>
+</html>

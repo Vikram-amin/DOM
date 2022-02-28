@@ -1,0 +1,118 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        td{
+            border: 1px solid red;
+        }
+
+    </style>
+</head>
+<body>
+
+<form >
+    <label >name</label>
+    <input type="text"  id="name">
+
+    <label >quantity</label>
+    <input type="number" id="quantity">
+    
+    <label for="">Priority</label>
+    <select id="Priority">
+        <option value="Low">Low</option>
+        <option value="Medium">Medium</option>
+        <option value="High">High</option>
+    </select>
+
+    <input type="submit" value="submit">
+
+    <table>
+        <tr>
+            <td>Name</td>
+            <td>Quantity</td>
+            <td>Priority</td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+</form>
+
+
+<script>
+
+let form=document.querySelector('form');
+let count=1;
+
+
+
+let addData = function (event){
+event.preventDefault();
+let name = document.getElementById('name').value;
+let quantity = document.getElementById('quantity').value;
+let Priority = document.getElementById('Priority').value;
+
+craeteItem(name,quantity,Priority)
+
+}
+
+let complete =function (event){
+    var parent=event.target.parentNode;
+    parent.style.background="green"
+}
+
+let deleted =function (event){
+    var parent=event.target.parentNode;
+    parent.remove();
+    
+}
+
+
+function craeteItem(name,quantity,Priority){
+    
+    let parent =document.querySelector('table')
+
+    let row=document.createElement('tr');
+
+    let c1=document.createElement('td')
+    c1.textContent=name;
+
+    let c2=document.createElement('td')
+    c2.textContent=quantity;
+
+    let c3=document.createElement('td')
+    c3.textContent=Priority;
+
+    let c4=document.createElement('td')
+    c4.textContent="complete -"+count;
+    c4.addEventListener('click',complete)
+
+    let c5=document.createElement('td')
+    c5.textContent="Delete -"+count;
+    c5.addEventListener('click',deleted)
+
+
+    row.appendChild(c1)
+    row.appendChild(c2)
+    row.appendChild(c3)
+    row.appendChild(c4)
+    row.appendChild(c5)
+
+    parent.appendChild(row)
+
+    count++
+}
+
+form.addEventListener('submit', addData);
+
+
+
+</script>
+    
+</body>
+</html>
