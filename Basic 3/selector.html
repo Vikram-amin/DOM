@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>First H1</h1>
+        <h1>Second H1</h1>
+        <h3>First H3</h3>
+        <h3>Second H3</h3>
+        <h5>First H5</h5>
+        <h5>Second H5</h5>
+        <h5>Third H5</h5>
+        <div class="green">First DIV</div>
+        <div class="red">Second DIV</div>
+        <div class="blue">Third DIV</div>
+        <p class="green">First P</p>
+        <p class="red">Second P</p>
+        <p class="blue">Third P</p>
+        <hr/>
+        <button onclick="changeh1()">Change H1</button>
+        <button onclick="changeh3()">Change H3</button>
+        <button onclick="changeh5()">Change H5</button>
+        <button onclick="changClass('green')">Change Green</button>
+        <button onclick="changClass('red')">Change Red</button>
+        <button onclick="changClass('blue')">Change Blue</button>
+        <script>
+
+        function changeh1(){
+            let fh1 =document.querySelector('h1')
+            fh1.style.color='red';
+        }
+           function changeh3(){
+            let h3_items =document.getElementsByTagName('h3')
+            for(let i=0;i<h3_items.length;i++){
+                h3_items[i].style.color="green"
+            }
+           
+        }
+       function changeh5(){
+            let h5_items =document.querySelectorAll('h5')
+            for(let i=0; i<h5_items.length; i++){
+                h5_items[i].style.color="blue"
+            }
+           
+        }
+
+
+        function changClass(name){
+            let item =document.querySelectorAll('.'+name)
+                for(let i=0;i<item.length;i++){
+                    item[i].style.color=name;
+        
+            }
+
+            }
+
+      
+
+
+
+        </script>
+    
+</body>
+</html>

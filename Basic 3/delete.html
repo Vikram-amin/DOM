@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+        <h1>First H1</h1>
+        <h1>Second H1</h1>
+        <h3>First H3</h3>
+        <h3>Second H3</h3>
+        <div id="headings">
+            <h5>First H5</h5>
+            <h5>Second H5</h5>
+            <h5>Third H5</h5>
+        </div>
+        <div id="cont">  
+            <div class="green">First DIV</div>
+            <div class="red">Second DIV</div>
+            <div class="blue">Third DIV</div>
+            <p class="green">First P</p>
+            <p class="red">Second P</p>
+            <p class="blue">Third P</p>
+        </div>
+        <hr/>
+        <button onclick="removeh1()">Remove H1</button>
+        <button onclick="removeh3()">Remove H3</button>
+        <button onclick="removeh5()">Remove H5</button>
+        <button onclick="removered('red')"> Remove Red</button>
+        <button  onclick="removediv()">Remove DIVS</button>
+        <script>
+
+            function removeh1(){
+            let h1=document.querySelector('h1');
+            h1.remove();
+
+            
+            }
+            function removeh3(){
+                let h3_item=document.querySelectorAll('h3')
+                h3_item[0].remove();
+                h3_item[1].remove();
+            }
+
+            function removeh5(){
+                let parent= document.querySelectorAll('h5')
+                for(let i=0;i<parent.length;i++){
+                    parent[i].remove();
+                }
+            }
+
+            function removered(name){
+              let item=document.querySelectorAll('.'+name);
+                      for(let i=0;i<item.length;i++){
+                    item[i].remove()
+        
+            }
+            }
+
+            function removediv(){
+                let parent=document.getElementById("cont");
+                let divChild= parent.querySelectorAll('div');
+                for(let i=0;i<divChild.length;i++){
+                    divChild[i].remove()
+                }
+            }
+
+
+
+        </script>
+</body>
+</html>

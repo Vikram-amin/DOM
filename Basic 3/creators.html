@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+      <div id="headings">
+        </div>
+        <div id="cont">
+        </div>
+        <ul id="vikings">
+            <li>Priyanshu</li>
+        </ul>
+        <button onclick="crateH1()">Create H1</button>
+        <button  onclick="crateH3()">Create 2 H3</button>
+        <button onclick="cratediv()">Create DIVS</button>
+        <button onclick="addStudents()">Add Students</button>
+        <button onclick="addCopy()">Add Copyright</button>
+        <script>
+            var students = ['Ajay','Akshay','Anusha','Chandrashekhara','Haren','Hasaan','Mahesh','Mousumi','Pavan','Rahul','Sumanta','Venkatesh','Vetrival','Vijayendra'];
+       
+
+     function crateH1(){
+       let parent= document.getElementById("headings");
+       let h1=document.createElement('h1');
+       h1.textContent="Masai school";
+       parent.appendChild(h1)
+    }
+
+    function crateH3(){
+        let parent=document.getElementById("headings");
+        let child1=document.createElement('h1');
+        let child2=document.createElement('h1');
+        child1.textContent=" A Transformation in education!"
+        child2.textContent="Learn to earn, pay when you get."
+        parent.appendChild(child1)
+        parent.appendChild(child2)
+    }
+
+
+
+        function cratediv(){
+            let parent= document.getElementById("cont");
+            for(let i=1;i<=10;i++){
+            let div=document.createElement('div');
+            div.textContent=i;
+            parent.appendChild(div)
+            }
+
+        }
+       
+       function addStudents(){
+           let parent=document.getElementById("vikings")
+               for(let i=0;i<students.length;i++){
+                let child=document.createElement('li');
+                child.textContent=students[i]
+                parent.append(child)
+               
+           }
+    }
+
+    function addCopy(){
+        let parent= document.body;
+      //  let btn=document.querySelector('#vikings');
+        let btn=document.querySelector('button')
+        let child=document.createElement('p');
+       child.textContent= "@ masai 2019";
+       parent.insertBefore(child , btn)
+    }
+       
+       </script>
+    
+</body>
+</html>
