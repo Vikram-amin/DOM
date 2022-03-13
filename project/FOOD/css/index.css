@@ -1,0 +1,125 @@
+/* Navigation Bar CSS */
+#navbar {
+    height: 80px;
+    display: flex;
+    align-items: center;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+  }
+  #menu {
+    width: 30px;
+    height: 30px;
+    margin: 20px;
+    margin-left: 50px;
+    position: relative;
+  }
+  #logo {
+    width: 150px;
+    height: 60px;
+  }
+  img[alt="kids"] {
+    margin-left: 20px;
+  }
+  .links {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+  }
+  
+  .links a {
+    color: black;
+    text-decoration: none;
+    padding-left: 30px;
+    padding-right: 10px;
+  }
+  .right {
+    position: absolute;
+    right: 20px;
+    display: flex;
+    float: right;
+  }
+  .right > button {
+    margin: auto;
+    margin-left: 20px;
+    background-color: #1f80e0;
+    color: black;
+    border-radius: 5px;
+    height: 25px;
+    border-color: #1f80e0;
+  }
+  .right > a {
+    margin: auto;
+    color: black;
+    text-decoration: none;
+    margin-left: 20px;
+  }
+  
+  .right > input {
+    opacity: 1;
+    background: none;
+    border-width: 0;
+    border-bottom: 1px solid #cecece;
+    width: 340px;
+    height: 32px;
+    font-size: 16px;
+  }
+  
+  input::placeholder {
+    color: black;
+    font-size: 16px;
+  }
+  
+  /* Search Bar */
+  
+  #meal_list {
+    width: 340px;
+    max-height: 400px;
+    overflow-y: scroll;
+    position: absolute;
+    top: 40px;
+    visibility: hidden;
+  }
+  .card {
+    display: flex;
+    margin-bottom: 10px;
+  }
+  .card > img {
+    width: 100px;
+    height: 100px;
+    float: left;
+  }
+  
+  .content {
+    width: 160px;
+    display: inline-block;
+    box-sizing: border-box;
+    padding: 20px;
+    vertical-align: top;
+    color: black;
+  }
+  
+  .container {
+    align-items: center;
+    padding: 100px;
+    padding-top: 20px;
+  }
+  /* h1 {
+    text-align: center;
+  } */
+  .container img {
+    width: 400px;
+    height: 400px;
+    padding: auto;
+    border: 10px solid #cecece;
+    border-radius: 20px;
+  }
+  
+  /* .recipe_img {
+    display: flex;
+    justify-content: center;
+  } */
+  
+  p {
+    font-size: 20px;
+  }
