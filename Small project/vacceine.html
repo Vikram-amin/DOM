@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Vaccine alert System</h1>
+    <form>
+        <input type="text" id="name" placeholder="Enter Name">
+        <input type="number" id="age" placeholder="Enter Age">
+    </form>
+     <button onclick="register()"> Register for Vaccine</button>
+
+    <h1 id="quuelength">0</h1>
+    <h1 id="countT">0</h1>
+
+
+     <script>
+
+let queue=[
+    {
+        name : "John",
+        age : 60,
+    },
+    {
+        name : "Mary",
+        age : 60,
+    },
+    {
+        name : "Ronaldo",
+        age : 60,
+    },
+    {
+        name : "John",
+        age : 60,
+    },
+    {
+        name : "Mary",
+        age : 60,
+    },
+    {
+        name : "Ronaldo",
+        age : 60,
+    },
+]
+
+//console.log(queue);
+
+function register(){
+
+let name= document.getElementById('name').value; 
+let age= document.getElementById('age').value;
+age=Number(age);
+
+ queue.push({ name: name, age: age });
+//console.log(queue);
+if(age < 60){
+    console.log(queue)
+    queue.unshift({ name: name, age: age })
+}
+
+let message=`${name} your Registration Done Wait for your turn`
+   alert(message);
+
+
+    let promise = new Promise(function(resolve,reject){
+
+    setInterval(function(){ 
+     // console.log(queue[0].name == name)   
+    if(queue[0].name == name){   
+     // console.log(queue)   
+    resolve(`${name}, its your turn now`);   
+   
+     }
+     },1000)
+   });
+
+    promise.then(function(res){ 
+         alert(res)
+        })
+    }
+
+
+count=10;
+function startVaccination(){
+   queue.shift()
+   console.log(queue)
+count--;
+let length=document.getElementById("quuelength");
+length.innerText="Queue Length ="+queue.length;
+   if(queue.length==0){
+     //  clearInterval(interval)
+   clearInterval(interval)
+   }
+
+   if(count==0){
+       alert("vaccine out of stock, visit tomorrow")
+   }else{
+  document.getElementById("countT").innerText="Vacine Count  ="+count
+   console.log(count)
+   }
+}
+let interval=setInterval(startVaccination,2000);
+
+     </script>
+</body>
+</html>

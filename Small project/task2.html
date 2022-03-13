@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task</title>
+    <style>
+        span{
+            margin-left: 40px;
+        }
+        #show>div{
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+        }
+        #show>div:nth-child(odd)
+        {
+            background-color: rgb(126, 231, 126);
+        }
+        #show>div:nth-child(even)
+        {
+            background-color: rgb(230, 236, 142);
+        }
+        #show{
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" id="task">
+    <button onclick="task_check()">Submit</button>
+    <div id="show">
+        <!-- <div>
+            <ol>
+                <li>
+                    <span>Hi</span><span>Hello</span><span>How</span>
+                </li>
+            </ol>
+        </div> -->
+    </div>
+</body>
+</html>
+<script>
+    //Create constructor functionm
+    function task(n,d,s)
+    {
+        this.name=n;
+        this.data=d;
+        this.status=s;
+    }
+    //call on constructor function in other function and pass arugument
+    function show_task(n,d,s)
+    {
+        task.call(this,n,d,s);
+    }
+    var i=1;
+
+    //call function after button click
+    function task_check()
+    {
+        var task=document.getElementById("task").value;
+        console.log(task);
+        var date=Date();
+        console.log(date);
+        var task_1=new show_task(task,date,"true")
+        console.log(task_1);
+
+        var show=document.getElementById("show");
+        //create element
+        var item=` <div>
+                    <span>${i}</span><span>${task_1.name}</span><span>${task_1.data}</span><span>${task_1.status}</span>
+                </div>`
+        //insert all element under in div the id of div is show
+        show.innerHTML+=item;
+        i++//increment
+    }
+</script>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+ <label >Enter Task</label>
+ <input type="text" id="inp">
+ <button id="btn">Submit</button>
+ <div id="div"></div>
+
+
+</body>
+</html>
+<script>
+
+var btn = document.getElementById("btn");
+var div=document.getElementById('div')
+btn.addEventListener("click",Showitem)
+var list;
+
+let tasks=function (name,status){
+    this.TaskName=name;
+    this.Date= new Date();
+    this.Status=status;
+    
+};
+var counter=0;
+var nums=0
+
+function Showitem(){
+    let inp=document.getElementById("inp").value;
+    let data=document.createElement('div')
+    let status=false;
+    
+      data.innerHTML= `<div id="itemNo${counter}">
+        <p id="paraNo${counter}"> </p>
+        <button id="btnNo${counter}" onclick="toggle(btnNo${counter})" >Not Done</button>
+             <button onclick="deleteIt(itemNo${counter})">Delete</button>
+        </div>`;
+  
+   
+    list = new tasks(inp,status);
+    let ul=document.createElement('ul');
+    let li=document.createElement('li');
+
+
+    for(key in list){
+   li.append(list[key]+" --- ")
+    }
+    li.append(data)
+    ul.append(li)
+    div.append(ul);
+
+  //  console.log(list)
+    counter++
+}
+
+  function deleteIt(id){
+        id.remove();
+        nums--;
+    }
+
+    function toggle(id){
+        if(id.textContent === "Not Done"){
+            id.textContent = "Done"
+            status = true;
+        }else{
+            id.textContent = "Not Done";
+            status = false;
+        }
+   status.append(p)      
+    }
+
+ console.log(p)
+
+    // let btn1=document.createElement('button');
+    // btn1.setAttribute("id","Done")
+    // btn1.addEventListener("click",toggle(`btnNo${counter}`))
+    //    let btn2=document.createElement('button');
+    // btn1.setAttribute("id","Remove")
+    // btn1.addEventListener("click",deleteIt(`itemNo${counter}`))
+
+
+</script>

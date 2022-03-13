@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>Tatkal Booking System</h1>
+    <button onclick="checkAvailability()">check Availability</button>
+    
+</body>
+</html>
+
+<script>
+
+function checkAvailability(){
+    let promise=new Promise(function(resolve,reject){
+        setInterval(() => {
+
+         if(BtoG.length<6){
+         resolve('BtoG is seat avilable');
+         } else if(MtoG.length<6){
+         resolve('MtoG is seat avilable');
+        }else if(PtoG.length<6){
+         resolve('PtoG is seat avilable');
+
+        }
+        }, 1000);
+
+    })
+
+promise.then(function(res){
+    console.log(res)
+
+    clearInterval(interval)
+})
+}
+
+
+let BtoG=['superMan','BatMan','IronMan','Krish','Shaktiman','Chota Bheem','Spider Man','hulk','messi']
+let MtoG=['superMan','BatMan','IronMan','Krish','Shaktiman','Chota Bheem','Spider Man','hulk','messi']
+let PtoG=['superMan','BatMan','IronMan','Krish','Shaktiman','Chota Bheem','Spider Man','hulk','messi']
+
+function cancelTicket(){
+let cancelSpeed1=Math.round(Math.random()*5);
+let cancelSpeed2=Math.round(Math.random()*5)
+let cancelSpeed3=Math.round(Math.random()*5)
+
+setTimeout(function(){
+    BtoG.pop();
+    console.log(BtoG)
+},cancelSpeed1*1000)
+
+
+setTimeout(function(){
+    MtoG.pop();
+    console.log(MtoG)
+},cancelSpeed2*1000)
+
+setTimeout(function(){
+    PtoG.pop();
+    console.log(PtoG)
+},cancelSpeed3*1000)
+}
+
+
+let interval= setInterval(cancelTicket,2000)
+</script>

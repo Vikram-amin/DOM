@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    <h1>To do list</h1>
+</head>
+<body>
+    <input type="text" id="inp">
+    <button onclick="addTask()">Add Task</button>
+    <div id="tasks"></div>
+
+    <!-- <div><p></p></div> -->
+
+<style>
+    .toggle{
+        text-decoration: line-through;
+        color: green;
+    }
+    
+
+</style> 
+</body>
+</html>
+<script>
+    var tasks=document.getElementById('tasks');
+    
+    var id=0;
+  
+
+    function addTask(){
+        var div=document.createElement('div');
+        var task=document.getElementById('inp').value
+        id=id+1;
+      // console.log(id)
+        div.innerHTML=`<p id =${id}>${task}<button onclick="toggle(${id})">Toggle</button><button onclick="Remove(${id})">Remove</button>`;
+
+
+        tasks.append(div);
+    }
+
+       
+
+     function toggle(i){
+
+            var cliked_p = document.getElementById(i);
+           cliked_p.classList.toggle("toggle");
+     
+}
+
+         function Remove(i){
+            
+          var cliked_p=document.getElementById(i);
+          var div= cliked_p.parentElement;
+          div.remove()
+        }
+
+        
+
+</script>

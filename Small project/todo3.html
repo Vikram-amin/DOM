@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    <h1>To do list</h1>
+    <style>
+    #countainer{
+        border: 2px solid black ;
+        width: 150px;
+        height: 50px;
+        float: right;
+        margin-right: 20px;
+        text-align: center;
+
+    }
+    #count{
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        border: 2px solid black ;
+        width: 40px;
+        height: 20px;
+        margin: auto;
+        padding-top: 5px;
+
+    }
+
+    .done{
+        text-decoration: line-through;
+        color: green;
+    }
+    
+
+</style> 
+</head>
+<body>
+    <div id="countainer">
+        <span>total number of tasks</span>
+        <div id="count" >1</div>
+
+    </div>
+
+    <input type="text" id="inp">
+    <button onclick="addTask()">Add Task</button>
+    <div id="tasks"></div>
+
+    <div><p></p></div>
+    <p id="demo"></p>
+   
+
+    
+
+
+</body>
+</html>
+<script>
+    var tasks=document.getElementById('tasks');
+    
+    var id=0;
+    var counter=0
+
+
+
+    function addTask(){
+        var div=document.createElement('div');
+        var task=document.getElementById('inp').value
+        id=id+1;
+      // console.log(id)
+        div.innerHTML=`<p id =${id}>${task}<button onclick="Done(${id})">Done</button><button onclick="Remove(${id})">Remove</button>`;
+        tasks.append(div);
+        counter++
+        document.getElementById("count").innerHTML=counter;
+     
+    }
+
+        function Done(i){
+           var cliked_p=document.getElementById(i);
+           cliked_p.setAttribute("class","done")
+        }
+
+         function Remove(i){
+            
+          var cliked_p=document.getElementById(i);
+          var div= cliked_p.parentElement;
+             counter--;
+          document.getElementById("count").innerHTML=counter;
+          div.remove()
+        }
+
+    
+
+</script>

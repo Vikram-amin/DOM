@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Covid vaccination alert System</h1>
+<input type="text" id="name" placeholder="Enter Name">
+<button onclick="register()">Register</button>
+
+<script>
+
+let queue=["jethalala","Ronaldo","Messi","Kejriwal","Babu bhaiya","Thanos"];
+
+
+function register(){
+let person=document.getElementById("name").value;
+queue.push(person);
+
+let message=`${person} your registration successful, Now go and wait`
+alert(message);
+
+let promise=new Promise(function (resolve,reject){
+
+    setInterval(() => {
+          if(queue[0] === person){
+        resolve(`${person} its your turn now`)
+    }  
+    }, 1000);// keep cheking weather promise fulfilled
+
+});
+
+promise.then(function (res){
+    console.log(res)
+})
+}
+
+
+function startVaccination(){
+   queue.shift()
+   console.log(queue)
+
+   if(queue.length==0){
+       clearInterval(interval)
+   }
+}
+let interval=setInterval(startVaccination,2000);
+
+
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+      #data img{
+        flex-wrap: wrap;
+        width: 200px;
+        height: 200px;
+        margin-left: 10px;
+        
+
+      }
+
+      #set{
+        width: 80%;
+       margin-top: 20px;
+      }
+      h3{
+        float: right;
+        margin-top: -250px;
+      }
+    
+    </style>
+</head>
+<body>
+       
+    <br>
+    <input type="checkbox" id="menu1" class="pl"  value="Chicken Sandwich">Chicken Sandwich</input>
+    <input type="checkbox" id="menu2" class="pl"   value="Chicken McNuggets">Chicken McNuggets </input>
+    <input type="checkbox" id="menu3" class="pl"   value="Quarter Pounder">Quarter Pounder </input>
+    <input type="checkbox" id="menu4"  class="pl"  value="Iced Coffee">Iced Coffee </input>
+    <input type="checkbox" id="menu5" class="pl"   value="Egg McMuffin">Egg McMuffin </input>
+
+<button onclick="orderFood()" id="order"> Order Food </button>
+
+<div id="set">
+<div id="data"></div> <br>
+    
+ </div>
+ <h3 style="color:green"></h3>
+</body>
+
+<script>
+
+  function orderFood() {  
+    let arr=[]
+  
+  var l1 = document.getElementById("menu1");  
+  var l2 = document.getElementById("menu2");  
+  var l3 = document.getElementById("menu3");  
+  var l4 = document.getElementById("menu4");  
+  var l5 = document.getElementById("menu5");  
+ 
+    var res=[];   
+  if (l1.checked == true){  
+    var pl1 = document.getElementById("menu1").value;  
+    res.push(pl1) 
+  }   
+  if (l2.checked == true){  
+    var pl2 = document.getElementById("menu2").value;  
+     res.push(pl2)  
+  }  
+ if (l3.checked == true){  
+  //document.write(res);  
+    var pl3 = document.getElementById("menu3").value;  
+     res.push(pl3) 
+  }  
+  if (l4.checked == true){  
+    var pl4 = document.getElementById("menu4").value;  
+     res.push(pl1)  
+  }  
+  if (l5.checked == true){  
+    var pl5 = document.getElementById("menu5").value;  
+    res.push(pl4)   
+  }  
+//   else {  
+//   return document.getElementById("result").innerHTML = "You have not selected anything";
+//  }  
+
+
+// console.log(res)
+  // return document.getElementById("result").innerHTML = "You have selected --" + res + " " ;  
+    let promise=new Promise(function(resolve,reject){
+        setInterval(() => {
+
+         if(res.length==0){
+         resolve("oderd food served");
+
+
+        }
+        }, 1000);
+
+    })
+
+promise.then(function(res){
+    alert(res)
+
+    clearInterval(interval)
+})
+  
+
+ 
+function foodready(){
+
+let flag1="https://images.unsplash.com/photo-1597900121060-cf21f1cfa5e6?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y2hpY2tlbiUyMHNhbmR3aWNofGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60";
+let flag2="https://images.unsplash.com/photo-1610057099443-fde8c4d50f91?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjB8fGNoaWNrZW4lMjBtY251Z2dldHN8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60";
+let flag3="https://images.unsplash.com/photo-1594184919345-cf9d99014ed8?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cXVhcnRlciUyMHBvdW5kZXJ8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60";
+let flag4="https://images.unsplash.com/photo-1592663527359-cf6642f54cff?ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8aWNlZCUyMGNvZmZlZXxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60";
+let flag5="https://images.unsplash.com/photo-1617054280194-9eb3deda5325?ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8ZWdnJTIwbWNtdWZmaW58ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60";
+const image = document.createElement('img');
+let data= document.querySelector('#data');
+let h3=document.querySelector('h3')
+
+setTimeout(function(){
+  let ans=  res.pop();
+   if(ans=="Chicken Sandwich"){
+  image.src=flag1 ;
+   let head="Order ID ="+Math.round(Math.random()*1000)
+  data.appendChild(image)
+  h3.innerHTML=head;
+ 
+   }
+  if(ans=="Chicken McNuggets"){
+  image.src=flag2 ;
+   let head="Order ID ="+Math.round(Math.random()*1000)
+  data.appendChild(image)
+  h3.innerHTML=head;
+}
+     if(ans=="Quarter Pounder"){
+  image.src=flag3 ;
+   let head="Order ID ="+Math.round(Math.random()*1000)
+  data.appendChild(image)
+  h3.innerHTML=head;
+}
+     if(ans=="Iced Coffee"){
+  image.src=flag4 ;
+   let head="Order ID ="+Math.round(Math.random()*1000)
+  data.appendChild(image)
+  h3.innerHTML=head;
+}
+  if(ans=="Egg McMuffin"){
+  image.src=flag5 ;
+   let head="Order ID ="+Math.round(Math.random()*1000)
+  data.appendChild(image)
+  h3.innerHTML=head;
+}
+},5000)
+
+}
+let interval=setInterval(foodready,2000)
+  }
+
+
+ 
+
+
+
+
+
+  </script>
+</html>

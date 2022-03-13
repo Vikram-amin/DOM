@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>Tatkal Booking System</h1>
+    <button onclick="checkAvailability()">check Availability</button>
+
+    <h1 id="BtoGlist">0</h1>
+     <h1 id="MtoGlist">0</h1>
+
+      <h1 id="PtoGlist">0</h1>
+</body>
+</html>
+
+<script>
+
+function checkAvailability(){
+    let promise=new Promise(function(resolve,reject){
+        setInterval(() => {
+         if(BtoG.length<6){
+         resolve('BtoG is seat avilable');
+         } else if(MtoG.length<6){
+         resolve('MtoG is seat avilable');
+        }else if(PtoG.length<6){
+         resolve('PtoG is seat avilable');
+
+        }
+        }, 1000);
+    })
+
+promise.then(function(res){
+    alert(res)
+   
+    window.location.href='booking.html'
+
+    clearInterval(intervalC)
+})
+}
+
+let BtoG=['superMan','BatMan','IronMan','Krish','Shaktiman','Chota Bheem','Spider Man','hulk','messi']
+let MtoG=['superMan','BatMan','IronMan','Krish','Shaktiman','Chota Bheem','Spider Man','hulk','messi']
+let PtoG=['superMan','BatMan','IronMan','Krish','Shaktiman','Chota Bheem','Spider Man','hulk','messi']
+
+function cancelTicket(){
+let cancelSpeed1=Math.round(Math.random()*5);
+let cancelSpeed2=Math.round(Math.random()*5)
+let cancelSpeed3=Math.round(Math.random()*5)
+
+setTimeout(function(){
+    BtoG.pop();
+   // console.log(BtoG.length)
+   document.getElementById("BtoGlist").innerHTML="BtoG train passager count --"+BtoG.length;
+},cancelSpeed1*1000)
+
+
+setTimeout(function(){
+    MtoG.pop();
+     document.getElementById("MtoGlist").innerHTML="MtoG train passager count --"+MtoG.length;
+   // console.log(MtoG)
+},cancelSpeed2*1000)
+
+setTimeout(function(){
+    PtoG.pop();
+ document.getElementById("PtoGlist").innerHTML="PtoG train passager count --"+PtoG.length;
+   // console.log(PtoG)
+},cancelSpeed3*1000)
+}
+
+
+function bookTicket(){
+let addSpeed1=Math.round(Math.random()*4);
+let addSpeed2=Math.round(Math.random()*5)
+let addSpeed3=Math.round(Math.random()*6)
+
+setTimeout(function(){
+    BtoG.push("any")
+    console.log(BtoG)
+},addSpeed1*1000)
+
+
+setTimeout(function(){
+    MtoG.push("any");
+    console.log(MtoG)
+},addSpeed2*1000)
+
+setTimeout(function(){
+    PtoG.push("any");
+  
+    console.log(PtoG)
+},addSpeed3*1000)
+}
+
+let intervalC= setInterval(cancelTicket,2000)
+let intervalB= setInterval(bookTicket,5000)
+</script>
