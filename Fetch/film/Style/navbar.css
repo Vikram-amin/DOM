@@ -1,0 +1,22 @@
+#navbar {
+    display: flex;
+    justify-content: space-between;
+    border: solid 1px black;
+    padding-left: 3%;
+    padding-right: 3%;
+
+  }
+
+  .tabs {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+  }
+
+  .tabs h3 {
+    padding-left: 30px;
+    padding-right: 10px;
+  }
+
+
+  

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+   
+    #container{
+        width: 60%;
+        height: 70vh;
+        margin: auto;
+        margin-top: 100px;
+
+        display: flex;
+        justify-content: space-around;
+    
+
+    }
+
+
+
+</style>
+</head>
+<body>
+    <input type="text" id="city" placeholder="City Name">
+    <button onclick="getData()">Search</button>
+    <div id="container"></div>
+    
+    <!-- <div>
+        <p> City : ${data.name}</p>
+        <p>Temperature :  ${data.main.temp} °C</p>
+        <p>Humidity : ${data.main.humidity}</p>
+        <p>Pressure :  ${data.main.pressure}</p>
+    </div> -->
+
+    <script>
+        let container = document.getElementById('container')
+        let API_KEY = "f0c9028e7c3e8f6e8a48994673470066";
+
+            async function getData() {
+            try {
+                let city = document.getElementById("city").value;
+                let res = await fetch(
+                `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`
+                );
+               let data = await res.json()
+               console.log(data)
+               displayData(data)     
+           } catch (error) {
+               
+           }
+       }
+
+
+
+       let leftDiv = document.createElement('div')
+       
+
+       function displayData(data){
+
+        var item = innerHTML=` <div>
+        <p> City : ${data.name}</p>
+        <p>Temperature :  ${data.main.temp} °C</p>
+        <p>Humidity : ${data.main.humidity}</p>
+        <p>Pressure :  ${data.main.pressure}</p>
+        </div>`;
+
+        leftDiv.innerHTML += item;
+
+        let iframe = document.createElement("iframe");
+        iframe.src = `https://maps.google.com/maps?q=${data.name}&t=&z=15&ie=UTF8&iwloc=&output=embed`;
+        iframe.width = 400;
+        iframe.height = 400;
+
+
+       container.append(leftDiv,iframe)
+       
+       }
+
+
+       
+
+
+    </script>
+    
+</body>
+</html>

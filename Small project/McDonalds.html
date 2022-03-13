@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>McDonald's</title>
+    <style>
+      #container{
+        width: 30%;
+        
+        margin: auto;
+        border: 2px solid teal;
+      }
+
+      #container p{
+        padding-left: 20px;
+      }
+
+      #id{
+        float: right;
+        padding-right: 60px;
+        font-size: 20px;
+      }
+    </style>
+</head>
+<body>
+
+    <input type="checkbox" id="menu1" class="pl"  value="Chicken Sandwich">Chicken Sandwich</input>
+    <input type="checkbox" id="menu2" class="pl"   value="Chicken McNuggets">Chicken McNuggets </input>
+    <input type="checkbox" id="menu3" class="pl"   value="Quarter Pounder">Quarter Pounder </input>
+    <input type="checkbox" id="menu4"  class="pl"  value="Iced Coffee">Iced Coffee </input>
+    <input type="checkbox" id="menu5" class="pl"   value="Egg McMuffin">Egg McMuffin </input>
+
+    <button onclick="orderFood()" id="order"> Order Food </button>
+
+    <br><hr><br>
+
+    <div id="id">Order ID</div>
+    <div id="container"></div>
+   
+
+    
+    <script>
+
+function orderFood() {    
+  var l1 = document.getElementById("menu1");  
+  var l2 = document.getElementById("menu2");  
+  var l3 = document.getElementById("menu3");  
+  var l4 = document.getElementById("menu4");  
+  var l5 = document.getElementById("menu5");  
+ 
+    var res=[];   
+  if (l1.checked == true){  
+    var pl1 = document.getElementById("menu1").value;  
+    res.push(pl1) 
+  }   
+  if (l2.checked == true){  
+    var pl2 = document.getElementById("menu2").value;  
+     res.push(pl2)  
+  }  
+ if (l3.checked == true){   
+    var pl3 = document.getElementById("menu3").value;  
+     res.push(pl3) 
+  }  
+  if (l4.checked == true){  
+    var pl4 = document.getElementById("menu4").value;  
+     res.push(pl4)  
+  }  
+  if (l5.checked == true){  
+    var pl5 = document.getElementById("menu5").value;  
+    res.push(pl5)   
+  }  
+
+
+
+
+   let myPromise = new Promise(function(resolve,reject){
+    interval =  setInterval(()=>{
+      resolve(res)
+    },5000)
+  })
+
+  myPromise.then(function(response){
+    let id="Order ID = "+Math.round(Math.random()*1000)
+    let ans=  document.getElementById('container')
+    for(let i=0;i<response.length;i++){
+      let p = document.createElement('p')
+       p.innerText = response[i]
+       ans.append(p)
+
+
+       document.getElementById('id').innerText=id
+    }
+    
+
+  })
+
+ 
+
+ 
+  
+}
+    </script>
+</body>
+</html>

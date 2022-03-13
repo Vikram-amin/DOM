@@ -1,0 +1,279 @@
+/* colors for dark theme */
+
+:root {
+    --bg-bar: rgb(32, 32, 32);
+    --bg-main: rgb(24, 24, 24);
+    --light-gray: rgb(56, 56, 56);
+    --icons: rgb(144, 144, 144);
+    --text: rgb(255, 255, 255);
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-main);
+}
+
+.topbar{
+    z-index: 2;
+    top: 0;
+    position: fixed;
+    width: 100%;
+    padding: 6px;
+    height: 60px;
+    padding: 0 15px 0 15px;
+    background-color: var(--bg-bar);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.sidebar {
+    position: fixed;
+    top: 60px;
+    font-family: sans-serif;
+    background-color: var(--bg-bar);
+    color: rgba(255, 255, 255, 0.651);
+    /* margin-top: 60px; */
+    height: 100vh;
+    width: 220px;
+    align-items: center;
+    padding-right: 10px;
+    overflow: scroll;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.sidebar li {
+    text-align: left;
+    padding-left: 30px;
+    width: 190px;
+    font-size: .9em;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    cursor: pointer;
+}
+.sidebar h4 {
+    padding-left: 30px;
+}
+.sidebar li i{
+    margin-right: 20px;
+}
+.sidebar li:hover, .sidebar li.active{
+    background-color: var(--light-gray);
+}
+
+li.active {
+    color: white;
+}
+
+
+.sidebar .section {
+    border-bottom: 1px solid var(--light-gray)
+}
+
+
+.topbar i {
+    color: white;
+}
+
+.logo {
+    width: 80px;
+}
+
+.fas, .fab {
+    font-size: 1.3em;
+    margin-left: 5px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.fa-bars {
+    color: white;
+    margin-left: 1em;
+    margin-right: 3em;
+}
+
+#youtube-paths {
+    fill: white;
+}
+
+.left, .middle, .right {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.left {
+    width: 160px;
+}
+.left i{
+    margin-right: 20px;
+}
+
+.middle .search input{
+    background-color: var(--bg-main);
+    border: 1px solid var(--light-gray);
+    padding: 7px;
+    width: 500px;
+    font-size: 1.2em;
+    color: lightgray;
+
+    border-collapse: collapse;
+}
+
+.middle .search input:focus{
+    border: 2px solid rgb(255, 0, 0);
+}
+
+.search{
+    display: flex;
+    flex-direction: row;
+}
+
+.middle .search .searchbtn {
+    height: 2em;
+    width: 80px;
+    font-size: 1.2em;
+    color: rgb(122, 122, 122);
+    background-color: var(--light-gray);
+    display: grid;
+    text-align: center;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 0 5px 5px 0;
+}
+.searchbtn i {
+    color: white;
+    opacity: .4;
+}
+.searchbtn:hover i {
+    opacity: .8;
+}
+
+.topbar .middle .fa-microphone {
+    margin-left: 20px;
+}
+
+.right {
+    width: 300px;
+    justify-content: space-evenly;
+}
+.right .icons {
+    display: flex;
+    justify-content: space-between;
+    width: 130px;
+}
+
+img.profile {
+    height: 2.2em;
+    border-radius: 50%;
+}
+
+.content {
+    margin-top: 60px;
+    margin-left: 230px;
+    height: 120vh;
+    padding: 3%;
+    font-family: sans-serif;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.vid {
+    margin: 10px 10px 10px 10px;
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    cursor: pointer;
+}
+
+.vid .info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.below {
+    display: inline;
+    width: 96px;
+    margin-left: 8px;
+}
+
+.vid .info h2, .vid .info p{
+    margin: 0;
+    padding: 0;
+    white-space: nowrap;
+}
+.info h2 {
+    font-size: 16px;
+    color: white;
+    cursor: pointer;
+}
+.info p{
+    color: #aaaaaa;
+}
+
+p.username:hover{
+    color: white;
+}
+
+.info i {
+    margin-top: 5px;
+    color: #aaaaaa;
+}
+
+.preview .time {
+    font-size: .8em;
+    position: absolute;
+    transform: translate(300px, -30px);
+    padding: 3px;
+    padding-right: 5px;
+    border-radius: 3px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.733);
+}
+.hovicons {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    transform: translate(310px, -190px);
+    opacity: 0;
+}
+
+.vid:hover .hovicons {
+    opacity: 1;
+}
+
+.hovicons i{
+    color: white;
+    background-color: rgba(0, 0, 0, 0.733);
+    margin-bottom: 5px;
+    padding: 4px 4px 4px 4px;
+    border-radius: 3px;
+}
+
+/* custom scrollbar */
+/* width */
+::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: var(--bg-bar);
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: var(--light-gray);
+    opacity: 0;
+    border-radius: 4px;
+  }
+  

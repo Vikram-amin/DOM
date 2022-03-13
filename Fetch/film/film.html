@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./Style/navbar.css">
+    <link rel="stylesheet" href="./Style/main.css">
+    <title>Films Page</title>
+</head>
+<body>
+    <div id="navbarHeading"></div>
+    
+    <div id="sortAndFilter">
+        <select name="sort" id="sort">
+        <option value="">Sort</option>
+        <option value="asc">Low to High</option>
+        <option value="desc">High to Low</option>
+      </select>
+  
+      <select name="filter" id="filter" >
+      <option value="">FILTER</option>
+      <option value="George_Lucas">George Lucas</option>
+      <option value="Irvin_Kershner">Irvin Kershner</option>
+      <option value=">Richard Marquand">Richard Marquand</option>
+      <option value=">Rick McCallum">Rick McCallum</option>
+      </select>
+      </div>
+  
+    <div id="container"></div>
+
+    <script type="module" src='./JS/film.js'></script>
+    
+</body>
+</html>
